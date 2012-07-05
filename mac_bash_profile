@@ -26,3 +26,6 @@ declare -x PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/b
 echo "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent
 echo "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent
 echo "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent
+
+
+export IRCNAME="I have nothing to say here."
