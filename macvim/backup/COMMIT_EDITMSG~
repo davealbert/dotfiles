@@ -2,11 +2,46 @@
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
 # On branch master
-#
-# Initial commit
-#
 # Changes to be committed:
-#   (use "git rm --cached <file>..." to unstage)
+#   (use "git reset HEAD <file>..." to unstage)
 #
-#	new file:   README
+#	modified:   linux_bash_profile
+#	modified:   macvim/.netrwhist
+#	modified:   macvim/backup/.bash_profile~
+#	modified:   macvim/backup/.netrwhist~
+#	new file:   macvim/backup/000-default~
+#	new file:   macvim/backup/1.php~
+#	new file:   macvim/backup/COMMIT_EDITMSG~
+#	new file:   macvim/backup/authorized_keys~
+#	new file:   macvim/backup/characters~
+#	new file:   macvim/backup/default~
+#	new file:   macvim/backup/feedback.php~
+#	new file:   macvim/backup/foo.html~
+#	new file:   macvim/backup/git.php~
+#	new file:   macvim/backup/gittest~
+#	new file:   macvim/backup/httpd.conf~
+#	new file:   macvim/backup/index.html~
+#	new file:   macvim/backup/index.php~
+#	new file:   macvim/backup/iptable-back~
+#	new file:   macvim/backup/iptables~
+#	new file:   macvim/backup/m2.html~
+#	new file:   macvim/backup/m3.php~
+#	new file:   macvim/backup/moodocityDownloadFeed.php~
+#	new file:   macvim/backup/moodocityDownloadMap.php~
+#	new file:   macvim/backup/moodocityPost.php~
+#	new file:   macvim/backup/moodocityapps~
+#	new file:   macvim/backup/moodocityblog~
+#	new file:   macvim/backup/moodocityweb~
+#	new file:   macvim/backup/news.php~
+#	new file:   macvim/backup/outline~
+#	new file:   macvim/backup/ports.conf~
+#	new file:   macvim/backup/res.html~
+#	new file:   macvim/backup/save2~
+#	new file:   macvim/backup/sendit~
+#	new file:   macvim/backup/servers~
+#	new file:   macvim/backup/sportsams~
+#	new file:   macvim/backup/sshd_config~
+#	new file:   macvim/backup/update-exim4.conf.conf~
+#	new file:   macvim/backup/updateNick.php~
+#	new file:   macvim/tmp/backip.swp
 #
