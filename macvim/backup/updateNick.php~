@@ -1,0 +1,28 @@
+<?php
+
+   $db_host = 'localhost';
+   $db_usr = 'mood';
+   $db_pass = 'M00dPass123';
+   $db = mysql_connect($db_host, $db_usr, $db_pass)
+   or die('Could not connect: ' . mysql_error());
+
+
+   $APP = mysql_real_escape_string($_GET['app']);
+   $ID = mysql_real_escape_string($_GET['DeviceID']);
+   $CNT = mysql_real_escape_string($_GET['Count']);
+   $NICK = mysql_real_escape_string($_GET['nickname']);
+
+   mysql_select_db('moodPost', $db);
+   $sql = "SELECT * FROM nicknames where deviceID='$ID';";
+   $res = mysql_query($sql) or die("e1" . mysql_error());
+
+   if (mysql_num_rows($res) >0){
+      $sql = "UPDATE nicknames SET nickname='$NICK' WHERE deviceID='$ID'";
+   } else {
+      $sql = "INSERT into nicknames (nickname,deviceID) values ('$NICK','$ID');";
+   }   
+   mysql_query($sql) or die ('e2');
+
+	 echo '.';
+?>
+

@@ -1,0 +1,32 @@
+<?php
+
+	 $db_host = 'localhost';
+	 $db_name = 'moodPost';
+	 $db_usr = 'mood';
+	 $db_pass = 'M00dPass123';
+	 $db = mysql_connect($db_host, $db_usr, $db_pass)
+	 or die('Could not connect: ' . mysql_error());
+
+	 mysql_select_db($db_name, $db);
+
+	 $APP = mysql_real_escape_string($_GET['app']);
+	 $ID = mysql_real_escape_string($_GET['DeviceID']);
+	 $face= mysql_real_escape_string($_GET['face']);
+	 $mood= mysql_real_escape_string($_GET['mood']);
+	 $SQ = mysql_real_escape_string($_GET['share']);
+	 $journal = mysql_real_escape_string($_GET['journal']);
+	 $datetime = mysql_real_escape_string($_GET['datetime']);
+
+	 $sql = "select if(b.nickname is NULL,'Anonymous',b.nickname) as nickname,a.id,a.datetime,a.mood,a.face,a.shareQuote,a.latitude,a.longitude,a.deviceID from posts a left  join nicknames b on a.deviceID=b.deviceID  order by a.id DESC;";
+
+	 $result = mysql_query($sql);
+
+	 $a = array();
+
+	 while($row = mysql_fetch_array($result)){
+			$a[] = $row;
+	 }
+
+	 echo json_encode($a);
+
+?>

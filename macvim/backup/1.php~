@@ -1,0 +1,12 @@
+<?php
+
+	 $to      = 'dave@moodocity.com';
+	 $subject = 'the subject';
+	 $message = 'hello';
+	 $headers = 'From: support@moodocity.com' . "\r\n" .
+	 'Reply-To: support@moodocity.com' . "\r\n" .
+	 'X-Mailer: PHP/' . phpversion();
+
+	 mail($to, $subject, $message, $headers);
+
+?>

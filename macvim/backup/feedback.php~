@@ -1,0 +1,22 @@
+<?php
+
+	 $db_host = 'localhost';
+	 $db_name = 'appsCount';
+	 $db_usr = 'mood';
+	 $db_pass = 'M00dPass123';
+	 $db = mysql_connect($db_host, $db_usr, $db_pass)
+	 or die('Could not connect: ' . mysql_error());
+
+	 mysql_select_db($db_name, $db);
+
+	 $APP = mysql_real_escape_string($_GET['app']);
+	 $ID = mysql_real_escape_string($_GET['DeviceID']);
+	 $CNT = mysql_real_escape_string($_GET['Count']);
+	 $feedback = mysql_real_escape_string($_GET['feedback']);
+
+	 $sql = "insert into feedback (deviceid,count,appName,feedback) values ('$ID','$CNT','$APP','$feedback');";
+
+	 mysql_query($sql);
+
+	 echo "FEEDBACK\n";
+?>

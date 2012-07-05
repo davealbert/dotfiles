@@ -1,0 +1,3 @@
+cd /var/www/moodocityweb
+git pull
+

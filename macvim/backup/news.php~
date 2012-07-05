@@ -1,0 +1,101 @@
+<?php
+
+	 $db_host = 'localhost';
+	 $db_name = 'appsCount';
+	 $db_usr = 'mood';
+	 $db_pass = 'M00dPass123';
+	 $db = mysql_connect($db_host, $db_usr, $db_pass)
+	 or die('Could not connect: ' . mysql_error());
+
+	 mysql_select_db($db_name, $db);
+
+	 $APP = mysql_real_escape_string($_GET['app']);
+	 $ID = mysql_real_escape_string($_GET['DeviceID']);
+	 $CNT = mysql_real_escape_string($_GET['Count']);
+	 $NICK = mysql_real_escape_string($_GET['nickname']);
+	 $sql = "insert into newsPull (deviceid,count,appName) values ('$ID','$CNT','$APP');";
+
+	 mysql_query($sql);
+
+
+	 mysql_select_db($db_name, 'moodPost');
+	 $sql = "SELECT * FROM nicknames where deviceID='$ID';";
+	 $res = mysql_query($sql) or die("e1" . mysql_error());
+
+	 if (mysql_num_rows($res) >0){
+			$sql = "UPDATE nicknames SET nickname='$NICK' WHERE deviceID='$ID'";
+	 } else {
+			$sql = "INSERT into nicknames (nickname,deviceID) values ('$NICK','$ID');";
+	 }
+	 mysql_query($sql) or die ('e2');
+
+
+	 if ($_GET['app'] ==="babyappz"):
+
+?>
+.<?php else: ?>
+<!DOCTYPE HTML>
+<html lang="en">
+	 <head>
+			<meta charset="UTF-8">
+			<title>App News</title>
+			<style type="text/css">
+				 html,body{
+							 margin:0px;
+							 padding:0px;
+							 height: 100%;
+							 width: 100%;
+
+				 }
+				 img {
+							 width: 75px;
+							 height: 75px;
+				 }
+				 .contents{
+							 background-color:#222222;
+							 color:#ffffff;
+							 height: 175%;
+							 width: 100%;
+							 margin: 0px;
+							 padding: 1px;
+				 }
+			</style>
+	 </head>
+	 <body><div class="contents">
+				 <center>
+						<h1>Get More Apps</h1>
+						<h2>
+							 <i>by Moodocity, Ltd</i>
+						</h2>
+				 </center>
+				 <table>
+						<tr>
+							 <td>
+									<a href="itms://itunes.apple.com/us/app/tilt-mooball/id478846832?mt=8"><img src="http://apps.moodocity.com/images/mooTiltBall.png" alt="mooTiltBall" /></a>
+							 </td>
+							 <td>Tilt MooBall - Tilt the device to stay away from the angry faces.</td>
+						</tr>
+						<tr>
+							 <td>
+									<a href="itms://itunes.apple.com/us/app/ask-de-hillbilly/id472613824?ls=1&mt=8"><img src="http://apps.moodocity.com/images/hillbilly_icon.jpg" alt="hillbilly" /></a>
+							 </td>
+							 <td>Ask de Hillbilly - He will tell you what to do.</td>
+						</tr>
+						<tr>
+							 <td>
+									<a href="itms://itunes.apple.com/us/app/inthestars/id470872330?ls=1&mt=8"><img src="http://apps.moodocity.com/images/inTheStars.png" alt="In the stars" /></a>
+							 </td> 
+							 <td>In the Stars - Is it in the stars?</td>
+						</tr>
+						<tr>
+							 <td>
+									<a href="itms://itunes.apple.com/us/app/ask-de-boss/id464354758?ls=1&mt=8"><img src="http://apps.moodocity.com/images/askdeboss.png" alt="De Boss" /></a>
+							 </td>
+							 <td>Ask de Boss - Let de Boss be the decider.</td>
+						</tr>
+				 </table>
+			</div>
+	 </body>
+</html>
+<?php endif; ?>
+

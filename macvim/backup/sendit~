@@ -1,0 +1,1 @@
+mail -s "From SendIT: $HOSTNAME" --append=FROM:dave@moodocity.com dave@moodocity.com
