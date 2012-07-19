@@ -1,0 +1,13 @@
+#!/bin/bash
+HOST='deasl.netii.net'
+USER='a6830342'
+PASSWD='P@55w0rd123'
+FILE='file.txt'
+cd web
+ftp -inv $HOST << EOF
+
+user $USER $PASSWD
+cd public_html
+put index.php
+
+EOF
