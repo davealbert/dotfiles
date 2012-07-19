@@ -1,11 +1,1 @@
-UserInterfaceState.xcuserstate
-SurveyApp/SurveyApp.xcodeproj/project.xcworkspace/xcuserdata/davealbert.xcuserdatad/WorkspaceSettings.xcsettings
-SurveyApp/SurveyApp.xcodeproj/xcuserdata/davealbert.xcuserdatad/xcdebugger/*
-
-# OS generated files #
-######################
-.DS_Store*
-ehthumbs.db
-Icon?
-Thumbs.db
-
+vim/backup/*
