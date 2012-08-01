@@ -7,9 +7,10 @@ function parse_git_branch {
 
 # Set prompt: " username@hostname/directory/tree $ " (with colors)
 
-export PS1="\[\e[32;1m\]\u\[\e[0m\]\[\e[32m\]@\h\[\e[36m\]\w \[\e[33m\]\$(parse_git_branch)\[\e[0m\]\[\e[33m\]\$ \e[37;40m"
+export PS1="\[\e[32;1m\]\u\[\e[0m\]\[\e[32m\]@\h\[\e[36m\]\w \[\e[33m\]\$(parse_git_branch)\[\e[0m\]\[\e[33m\]\$ \[\e[37;40m\]"
 #export PS1="\[\e[32;1m\]\u\[\e[0m\]\[\e[32m\]@\h\[\e[36m\]\w \[\e[33m\]\$"
 #export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+set -o vi
 
 #aliases
 alias ls='ls -G'
@@ -29,3 +30,4 @@ echo "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep Batte
 
 
 export IRCNAME="I have nothing to say here."
+COLUMNS=250
