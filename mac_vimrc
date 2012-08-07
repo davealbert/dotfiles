@@ -1,4 +1,12 @@
+
 imap £ #
+cmap £ #
+map £ #
+
+
+map <f7> :tabp<CR>
+map <f8> :tabn<CR>
+
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
