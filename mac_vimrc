@@ -3,6 +3,9 @@ imap £ #
 cmap £ #
 map £ #
 
+" Insert the next charachter pressed and shift the rest of the line right
+" <space><space>  would add one space.
+nmap <Space> i_<Esc>r
 
 map <f7> :tabp<CR>
 map <f8> :tabn<CR>

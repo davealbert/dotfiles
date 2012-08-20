@@ -1,4 +1,14 @@
+
 imap £ #
+cmap £ #
+map £ #
+
+" Insert thenext charachter pressed and shift the rest of the line right
+nmap <Space> i_<Esc>r
+
+map <f7> :tabp<CR>
+map <f8> :tabn<CR>
+
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
