@@ -1,9 +1,12 @@
+source /Library/Ruby/Gems/1.8/gems/xiki-0.6.3/etc/vim/xiki.vim
+
 
 imap £ #
 cmap £ #
 map £ #
 
-" Insert thenext charachter pressed and shift the rest of the line right
+" Insert the next charachter pressed and shift the rest of the line right
+" <space><space>  would add one space.
 nmap <Space> i_<Esc>r
 
 map <f7> :tabp<CR>
