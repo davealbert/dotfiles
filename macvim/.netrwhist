@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/Users/davealbert/Dropbox/Notes/Publicis/projects'
 let g:netrw_dirhist_2='/var/www/moodocityapps'
 let g:netrw_dirhist_3='/Users/davealbert/code/iQ.mercury/Cialis/Presentations/CIALIS/_assets/HUB01/_css'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/Users/davealbert/code/iQ.mercury/Bydureon/New Irish/Pres
 let g:netrw_dirhist_5='/Users/davealbert/code/iQ.mercury/Cialis/Presentations/CIALIS/_assets/EHT01'
 let g:netrw_dirhist_6='/Users/davealbert/code/iQ.mercury/Cialis/Presentations/CIALIS/_assets/COD01'
 let g:netrw_dirhist_7='/Users/davealbert/code/iQ.mercury/Cialis/Presentations/CIALIS/_assets/HUB01'
+let g:netrw_dirhist_8='/Users/davealbert/code/ruby/rails_projects/sample_app'

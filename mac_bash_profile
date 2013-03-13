@@ -18,8 +18,9 @@ export EDITOR=vim
 #aliases
 alias ls='ls -G'
 alias l='ls -Gltr'
-alias a='git add *;git commit -a;git push'
+alias a='grep -Ir TODO * > TODO;git add .;git commit -a;git push'
 alias grep='grep --color'
+alias d='screen bash -c "cd \"$PWD\" && exec $SHELL --login"'
 
 alias vlc=/Applications/VLC.app/Contents/MacOS/VLC
 
@@ -46,3 +47,5 @@ COLUMNS=250
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
