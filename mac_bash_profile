@@ -40,8 +40,13 @@ export EDITOR=vim
 
 
 #aliases
+if [ $(uname) == Linux ]; then
+alias ls='ls --color'
+alias l='ls -ltr --color'
+else
 alias ls='ls -G'
 alias l='ls -Gltr'
+fi
 alias a='grep -Ir TODO * > TODO;git add .;git commit -a;git push'
 alias grep='grep --color'
 alias d='screen bash -c "cd \"$PWD\" && exec $SHELL --login"'
