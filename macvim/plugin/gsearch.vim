@@ -15,5 +15,5 @@ command -nargs=+ Google call GoogleSearch(<f-args>)
 
 function GoogleSearch(...)
 	let q = substitute(join(a:000, " "), ' ', "+", "g")
-	exe '!links https://encrypted.google.com/search?q=' . q
+	exe '!lynx https://encrypted.google.com/search?q=' . q
 endfunction
