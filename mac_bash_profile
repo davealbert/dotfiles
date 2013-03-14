@@ -1,8 +1,32 @@
+function shh () {
+	text="";
+	echo -n "Password: ";
+	read -s pass;
+	echo;
+	echo -n "Filename: ";
+	read file;
+	if [ "$file" != "" ]; then
+		if [ -f "$file.enc.txt" ]; then
+			echo "File Exists"
+			return 1
+		fi
+		echo;
+		echo "Text: ";
+		while read -s input; do
+			text="$text\n$input";
+		done;
+
+		echo -e $text | openssl enc -aes-256-cbc -pass pass:$pass -out $file.enc.txt;
+	else
+		echo "Bad filename.";
+	fi
+}
+
 function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
 }
 function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 
 # Set prompt: " username@hostname/directory/tree $ " (with colors)
@@ -16,10 +40,16 @@ export EDITOR=vim
 
 
 #aliases
+if [ $(uname) == Linux ]; then
+alias ls='ls --color'
+alias l='ls -ltr --color'
+else
 alias ls='ls -G'
 alias l='ls -Gltr'
-alias a='git add *;git commit -a;git push'
+fi
+alias a='grep -Ir TODO * > TODO;git add .;git commit -a;git push'
 alias grep='grep --color'
+alias d='screen bash -c "cd \"$PWD\" && exec $SHELL --login"'
 
 alias vlc=/Applications/VLC.app/Contents/MacOS/VLC
 
@@ -46,8 +76,9 @@ COLUMNS=250
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+
 if [ -d /usr/local/pgsql/bin ] ; then
-     PATH="/usr/local/pgsql/bin:${PATH}"
+	 PATH="/usr/local/pgsql/bin:${PATH}"
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
