@@ -1,25 +1,86 @@
 function shh () {
-	text="";
-	echo -n "Password: ";
-	read -s pass;
-	echo;
+	OKPASS=0;
 	echo -n "Filename: ";
 	read file;
-	if [ "$file" != "" ]; then
-		if [ -f "$file.enc.txt" ]; then
-			echo "File Exists"
-			return 1
-		fi
-		echo;
-		echo "Text: ";
-		while read -s input; do
-			text="$text\n$input";
-		done;
 
-		echo -e $text | openssl enc -aes-256-cbc -pass pass:$pass -out $file.enc.txt;
-	else
+	if [ "$file" == "" ]; then
 		echo "Bad filename.";
+		return 1;
 	fi
+
+	if [ -f "$file.enc.txt" ]; then
+		echo "File Exists"
+		return 1
+	fi
+
+	while [[ $OKPASS == 0 ]];
+	do
+		unset password
+		prompt="Password:"
+		while IFS= read -p "$prompt" -r -s -n 1 char
+		do
+			if [[ $char == $'\0' ]]
+				then
+				break
+			fi
+			prompt='*'
+			password+="$char"
+		done
+		echo;
+		unset confirm
+		prompt="Confirm:"
+		while IFS= read -p "$prompt" -r -s -n 1 char
+		do
+			if [[ $char == $'\0' ]]
+				then
+				break
+			fi
+			prompt='*'
+			confirm+="$char"
+		done
+		echo;
+
+
+
+		if [[ "$password" == "$confirm" ]]; then
+			OKPASS=1;
+		else
+			echo "Passwords do not match.";
+		fi
+	done
+	echo;
+
+	unset text;
+	echo "Text:";
+	prompt="";
+	while IFS= read -p "$prompt" -r -s -n 1 char
+	do
+		prompt=".";
+		if [[ $char == "" ]]; then
+			echo;
+			prompt="";
+			char=$'\n';
+		fi
+		if [[ $char == " " ]]; then
+			echo -n " ";
+			prompt="";
+		fi
+
+		if [[ $(printf "%d\n" \'$char) == 127 ]]; then
+			text="${text%?}";
+			echo -n -e "\b \b";
+			prompt="";
+			char="";
+		fi
+
+		if [[ $(printf "%d\n" \'$char) == 4 ]]; then
+			echo;
+			echo;
+			echo -n -e $"$text" | openssl enc -aes-256-cbc -pass pass:$password -out $file.enc.txt;
+			break;
+		fi
+		text+="$char";
+	done;
 }
 
 function parse_git_dirty {
@@ -41,11 +102,11 @@ export EDITOR=vim
 
 #aliases
 if [ $(uname) == Linux ]; then
-alias ls='ls --color'
-alias l='ls -ltr --color'
+	alias ls='ls --color'
+	alias l='ls -ltr --color'
 else
-alias ls='ls -G'
-alias l='ls -Gltr'
+	alias ls='ls -G'
+	alias l='ls -Gltr'
 fi
 alias a='grep -Ir TODO * > TODO;git add .;git commit -a;git push'
 alias grep='grep --color'
@@ -60,10 +121,11 @@ declare -x PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/b
 
 
 # Tell me the battery percentage when I open bash
-echo "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent
-echo "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent
-echo "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent
-
+if [ $(uname) != Linux ]; then
+	echo "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent
+	echo "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent
+	echo "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent
+fi
 
 export IRCNAME="I have nothing to say here."
 COLUMNS=250
@@ -78,7 +140,9 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 
 if [ -d /usr/local/pgsql/bin ] ; then
-	 PATH="/usr/local/pgsql/bin:${PATH}"
+	PATH="/usr/local/pgsql/bin:${PATH}"
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+
