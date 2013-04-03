@@ -111,6 +111,8 @@ alias l='ls -ltr --color'
 else
 alias ls='ls -G'
 alias l='ls -Gltr'
+alias mysql='/Applications/MAMP/Library/bin/mysql'
+alias mysqldump='/Applications/MAMP/Library/bin/mysqldump'
 fi
 alias a='grep -Ir TODO * > TODO;git add .;git commit -a;git push'
 alias grep='grep --color'
