@@ -1,8 +1,8 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/davealbert/Dropbox/Notes/Publicis/projects'
-let g:netrw_dirhist_2='/var/www/moodocityapps'
-let g:netrw_dirhist_3='/Users/davealbert/code/iQ.mercury/Cialis/Presentations/CIALIS/_assets/HUB01/_css'
-let g:netrw_dirhist_4='/Users/davealbert/code/iQ.mercury/Bydureon/New Irish/Presentations/BYD_IRL/_css'
-let g:netrw_dirhist_5='/Users/davealbert/code/iQ.mercury/Cialis/Presentations/CIALIS/_assets/EHT01'
-let g:netrw_dirhist_6='/Users/davealbert/code/iQ.mercury/Cialis/Presentations/CIALIS/_assets/COD01'
+let g:netrw_dirhist_1='/home/deasl/Dropbox/Notes/Home'
+let g:netrw_dirhist_2='/home/deasl/Dropbox/Notes'
+let g:netrw_dirhist_3='/home/deasl/Dropbox'
+let g:netrw_dirhist_4='/home/deasl/code/rails/moodocityblog'
+let g:netrw_dirhist_5='/home/deasl/code/rails/moodocityblog/app'
+let g:netrw_dirhist_6='/home/deasl/code/rails/moodocityblog/app/controllers'
