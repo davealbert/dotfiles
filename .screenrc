@@ -1,0 +1,4 @@
+shell -$SHELL
+defscrollback 5000
+multiuser on
+

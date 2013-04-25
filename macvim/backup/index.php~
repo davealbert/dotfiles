@@ -1,6 +1,0 @@
-<?php
-
-	 header('Location: http://moodocity.posterous.com/');
-	 
-
-?>
