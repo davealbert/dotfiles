@@ -173,3 +173,12 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
 
+
+##
+# Your previous /Users/davealbert/.bash_profile file was backed up as /Users/davealbert/.bash_profile.macports-saved_2013-04-21_at_17:39:41
+##
+
+# MacPorts Installer addition on 2013-04-21_at_17:39:41: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
