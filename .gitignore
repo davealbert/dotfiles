@@ -1,3 +1,4 @@
 macvim/backup/*
 macvim/tmp/*
 
+.DS_Store

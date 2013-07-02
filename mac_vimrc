@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 "let $XIKI_DIR = "/Library/Ruby/Gems/1.8/gems/xiki-0.6.3"
 "source $XIKI_DIR/etc/vim/xiki.vim
 
@@ -26,7 +28,7 @@ nnoremap <silent> <C-a> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 set shiftwidth=2
 set ai                  " auto indenting
-set history=100         " keep 100 lines of history
+set history=10000       " keep 100 lines of history
 set ruler               " show the cursor position
 set showcmd
 set cmdheight=1
@@ -66,12 +68,25 @@ if has('gui_running')
         set spellsuggest=best,10
     endif
 endif
+
+"FROM G.B.
+set cursorline
+
 "disable arrow keys
- noremap  <Up> ""
- noremap! <Up> <Esc>
- noremap  <Down> ""
- noremap! <Down> <Esc>
- noremap  <Left> ""
- noremap! <Left> <Esc>
- noremap  <Right> ""
- noremap! <Right> <Esc>
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+
+set shell=bash
+
