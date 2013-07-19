@@ -152,11 +152,11 @@ declare -x PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/b
 
 # Tell me the battery percentage when I open bash
 if [ $(uname) != Linux ]; then
-echo "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent
-echo "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent
-echo "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent
+echo -n "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent |grep -v max
+echo -n "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent|grep -v max
+echo -n "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent|grep -v max
 fi
-
+  
 export IRCNAME="I have nothing to say here."
 COLUMNS=250
 
@@ -199,3 +199,5 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 alias t=phpunit
+
+stty -ixon -ixoff

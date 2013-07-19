@@ -91,9 +91,10 @@ set shell=bash
 
 
 "Lighter looking colors"
-set t_Co=256 " 256 colors
-set background=dark
-color grb256
+"set t_Co=8 " 256 colors
+"set background=dark
+"color grb256
+"color railscasts
 
 
 set switchbuf=useopen
@@ -134,9 +135,17 @@ autocmd BufWritePre *.php :%s/\s\+$//e
 autocmd BufWritePre *.html :%s/\s\+$//e
 autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
+autocmd BufWritePre .*rc :%s/\s\+$//e
 
+nmap <C-s> :w<CR>
+"imap <c-s> <Esc>:w<CR>a
+imap <C-s> <Esc><C-s>
 
 
 map <Leader>t :tabnew<Enter>
 map <Leader>w :close<Enter>
 
+command! Browser :! open -a Google\ Chrome.app %:p
+
+
+set wildmenu
