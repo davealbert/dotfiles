@@ -19,6 +19,9 @@ function sman() {
 }
 
 
+function remote_vim () {
+   curl $1 | vim -;
+}
 
 function shh () {
 	 OKPASS=0;
@@ -186,3 +189,13 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 export PATH=/Applications/MAMP/bin/php5/bin/:$PATH
 alias art='php artisan'
+
+##
+# Your previous /Users/DaveAlbert/.bash_profile file was backed up as /Users/DaveAlbert/.bash_profile.macports-saved_2013-07-05_at_08:01:26
+##
+
+# MacPorts Installer addition on 2013-07-05_at_08:01:26: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+alias t=phpunit

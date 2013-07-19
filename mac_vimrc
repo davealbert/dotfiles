@@ -90,3 +90,17 @@ set autoindent
 
 set shell=bash
 
+
+
+
+"Command-T
+"  Ctrl-p to access
+"     Ctrl-t to open in new tab
+map <C-p> <Esc>:CommandT<CR>
+imap <C-p> <Esc>:CommandT<CR>
+
+
+imap ii <Esc>
+
+
+
