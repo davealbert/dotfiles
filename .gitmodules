@@ -1,0 +1,3 @@
+[submodule "macvim/bundle/vim-multiple-cursors"]
+	path = macvim/bundle/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git

@@ -1,5 +1,9 @@
 execute pathogen#infect()
 
+"g:multi_cursor_exit_from_insert_mode (Default: 1)
+"g:multi_cursor_exit_from_visual_mode (Default: 1)
+let g:multi_cursor_exit_from_insert_mode=0
+
 "let $XIKI_DIR = "/Library/Ruby/Gems/1.8/gems/xiki-0.6.3"
 "source $XIKI_DIR/etc/vim/xiki.vim
 
@@ -88,6 +92,7 @@ set softtabstop=4
 set autoindent
 
 set shell=bash
+"set shell=/bin/bash\ -i
 
 
 "Lighter looking colors"
@@ -108,7 +113,7 @@ syntax on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
     let old_name = expand('%')
-    let new_name = input('New file name: ', expand('%'), 'file')
+    let new_name = input('New file name: ', expatd('%'), 'file')
     if new_name != '' && new_name != old_name
         exec ':saveas ' . new_name
         exec ':silent !rm ' . old_name
