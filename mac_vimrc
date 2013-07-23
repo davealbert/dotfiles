@@ -35,9 +35,11 @@ set ai                  " auto indenting
 set history=10000       " keep 100 lines of history
 set ruler               " show the cursor position
 set showcmd
-
+set ignorecase
 syntax on               " syntax highlighting
 set hlsearch            " highlight the last searched term
+:nnoremap <CR> :nohlsearch<cr>
+
 filetype plugin on      " use the file type plugins
 
 " When editing a file, always jump to the last cursor position
@@ -76,14 +78,14 @@ endif
 set cursorline
 
 "disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
+map <up> :echo 'No!'<cr>
+map <down> :echo 'No!'<cr>
+map <left> :echo 'No!'<cr>
+map <right> :echo 'No!'<cr>
+imap <up> :echo 'No!'<cr>
+imap <down> :echo 'No!'<cr>
+imap <left> :echo 'No!'<cr>
+imap <right> :echo 'No!'<cr>
 
 set expandtab
 set tabstop=4
@@ -113,7 +115,7 @@ syntax on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! RenameFile()
     let old_name = expand('%')
-    let new_name = input('New file name: ', expatd('%'), 'file')
+    let new_name = input('New file name: ', expand('%'), 'file')
     if new_name != '' && new_name != old_name
         exec ':saveas ' . new_name
         exec ':silent !rm ' . old_name
@@ -154,3 +156,26 @@ command! Browser :! open -a Google\ Chrome.app %:p
 
 
 set wildmenu
+
+
+
+"PhpUnit Testing
+function! RunPhpUnitTest(...)
+    :w
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    if a:0
+        let file = a:1
+        :exec '!phpunit ' . file
+    else
+        :!phpunit
+    endif
+
+endfunction
+
+map <Leader>r :call RunPhpUnitTest()<cr>
+map <Leader>R :call RunPhpUnitTest(@%)<cr>
