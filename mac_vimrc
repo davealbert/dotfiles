@@ -177,5 +177,10 @@ function! RunPhpUnitTest(...)
 
 endfunction
 
-map <Leader>r :call RunPhpUnitTest()<cr>
-map <Leader>R :call RunPhpUnitTest(@%)<cr>
+map <Leader>R :call RunPhpUnitTest()<cr>
+map <Leader>r :call RunPhpUnitTest(@%)<cr>
+
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+map <Leader>a :!php artisan
