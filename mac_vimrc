@@ -184,3 +184,14 @@ map <Leader>r :call RunPhpUnitTest(@%)<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 map <Leader>a :!php artisan
+
+
+
+"Bubble single lines (kicks butt)
+""http://vimcasts.org/episodes/bubbling-text/
+nmap <C-k> ddkP
+nmap <C-j> ddp
+
+"Bubble multiple lines
+vmap <C-k> xkP`[V`]
+vmap <C-j> xp`[V`]
