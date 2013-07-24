@@ -133,7 +133,9 @@ map <C-p> <Esc>:CommandT<CR>
 imap <C-p> <Esc>:CommandT<CR>
 
 
-imap ii <Esc>
+inoremap jk <esc>
+inoremap <esc> <esc>:echo 'No! Use: jk '<cr>i
+
 
 
 "Remove whitespace on save
