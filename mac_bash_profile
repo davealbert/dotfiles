@@ -2,7 +2,7 @@ if [ $(uname) == Linux ]; then
 	SUBL=/usr/local/bin/subl
 
 
-git ()  { 
+git ()  {
     if [[ -n $(type git-$1 > /dev/null 2>&1 || echo "NO") ]]; then
         /usr/bin/git "$@";
     else
@@ -128,10 +128,10 @@ export MANWIDTH=80
 #aliases
 if [ $(uname) == Linux ]; then
 alias ls='ls --color'
-alias l='ls -ltr --color'
+alias l='ls -ltrh --color'
 else
 alias ls='ls -G'
-alias l='ls -Gltr'
+alias l='ls -Gltrh'
 alias mysql='/Applications/MAMP/Library/bin/mysql'
 alias mysqldump='/Applications/MAMP/Library/bin/mysqldump'
 fi
@@ -156,7 +156,7 @@ echo -n "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent |grep -v
 echo -n "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent|grep -v max
 echo -n "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent|grep -v max
 fi
-  
+
 export IRCNAME="I have nothing to say here."
 COLUMNS=250
 
