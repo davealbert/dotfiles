@@ -201,3 +201,4 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 alias t=phpunit
 
 stty -ixon -ixoff
+alias pp='python -mjson.tool'
