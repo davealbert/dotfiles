@@ -1,5 +1,6 @@
 execute pathogen#infect()
 
+
 "g:multi_cursor_exit_from_insert_mode (Default: 1)
 "g:multi_cursor_exit_from_visual_mode (Default: 1)
 let g:multi_cursor_exit_from_insert_mode=0
@@ -100,7 +101,8 @@ set shell=bash
 "Lighter looking colors"
 "set t_Co=8 " 256 colors
 "set background=dark
-"color grb256
+color grb256
+set t_Co=256 
 "color railscasts
 
 
@@ -197,3 +199,10 @@ nmap <C-j> ddp
 "Bubble multiple lines
 vmap <C-k> xkP`[V`]
 vmap <C-j> xp`[V`]
+
+
+set laststatus=2
+set statusline=%f\ -\ FileType:\ %y
+hi StatusLine ctermbg=Black ctermfg=Black
+
+
