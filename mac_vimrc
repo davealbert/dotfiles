@@ -102,7 +102,7 @@ set shell=bash
 "set t_Co=8 " 256 colors
 "set background=dark
 color grb256
-set t_Co=256 
+set t_Co=256
 "color railscasts
 
 
@@ -205,4 +205,5 @@ set laststatus=2
 set statusline=%f\ -\ FileType:\ %y
 hi StatusLine ctermbg=Black ctermfg=Black
 
-
+"Much nicer filename autocompletion
+set wildmode=longest,list
