@@ -205,4 +205,5 @@ set laststatus=2
 set statusline=%f\ -\ FileType:\ %y
 hi StatusLine ctermbg=Black ctermfg=Black
 
-
+"Much nicer filename autocompletion
+set wildmode=longest,list
