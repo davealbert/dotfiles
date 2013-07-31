@@ -206,4 +206,5 @@ set statusline=%f\ -\ FileType:\ %y
 hi StatusLine ctermbg=Black ctermfg=Black
 
 "Much nicer filename autocompletion
-set wildmode=longest,list
+"set wildmode=list:longest,list
+set wildmode=longest:full,full
