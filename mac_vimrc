@@ -203,7 +203,7 @@ vmap <C-j> xp`[V`]
 
 set laststatus=2
 set statusline=%f\ -\ FileType:\ %y
-hi StatusLine ctermbg=Black ctermfg=Black
+hi StatusLine ctermbg=Grey ctermfg=DarkGrey
 
 "Much nicer filename autocompletion
 "set wildmode=list:longest,list
