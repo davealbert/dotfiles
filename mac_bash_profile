@@ -187,7 +187,7 @@ PATH=$PATH:/usr/local/Cellar/binutils/2.23/bin
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-export PATH=/Applications/MAMP/bin/php5/bin/:$PATH
+export PATH=/Applications/MAMP/bin/php5/bin:$PATH
 alias art='php artisan'
 
 ##
