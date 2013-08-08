@@ -1,3 +1,14 @@
+function genPass () {
+   if [ "$1" == "" ]; then
+      count=8;
+   else
+      count=$1;
+   fi
+
+   cat /dev/random| env LC_CTYPE=C tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?='|fold -w $count| head -n 4| grep -i '[!@#$%^&*()_+{}|:<>?=]'
+}
+
+
 if [ $(uname) == Linux ]; then
 	SUBL=/usr/local/bin/subl
 
