@@ -148,6 +148,8 @@ autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre .*rc :%s/\s\+$//e
 
+au BufNewFile,BufRead *.todo setlocal ft=todo
+
 nmap <C-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
 imap <C-s> <Esc><C-s>
