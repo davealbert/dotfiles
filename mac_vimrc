@@ -154,19 +154,17 @@ function! ToDoSettings()
     setlocal ft=todo
 endfunction
 
-function! PhpSettings()
-    map <Leader><Leader> :w<cr>:!php %<cr>
-    imap <Leader><Leader> jk:w<cr>:!php %<cr>
+function! CodeLeaderSettings(langExe)
+    execute "map <Leader><Leader> :w<cr>:!" . a:langExe . " %<cr>"
+    execute "imap <Leader><Leader> jk:w<cr>:!" . a:langExe . " %<cr>"
 endfunction
 
-function! RubySettings()
-    map <Leader><Leader> :w<cr>:!ruby %<cr>
-    imap <Leader><Leader> jk:w<cr>:!ruby %<cr>
-endfunction
+
+au BufNewFile,BufRead *.php call CodeLeaderSettings("php")
+au BufNewFile,BufRead *.rb call CodeLeaderSettings("ruby")
+au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
-au BufNewFile,BufRead *.php call PhpSettings()
-au BufNewFile,BufRead *.rb call RubySettings()
 
 nmap <C-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
