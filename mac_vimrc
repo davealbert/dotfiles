@@ -147,8 +147,26 @@ autocmd BufWritePre *.html :%s/\s\+$//e
 autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre .*rc :%s/\s\+$//e
+autocmd BufWritePre *.todo :%s/\s\+$//e
 
-au BufNewFile,BufRead *.todo setlocal ft=todo
+function! ToDoSettings()
+    map <Leader><Leader> :s/\[\s\]/\[x\]<cr><cr>:w<cr>
+    setlocal ft=todo
+endfunction
+
+function! PhpSettings()
+    map <Leader><Leader> :w<cr>:!php %<cr>
+    imap <Leader><Leader> jk:w<cr>:!php %<cr>
+endfunction
+
+function! RubySettings()
+    map <Leader><Leader> :w<cr>:!ruby %<cr>
+    imap <Leader><Leader> jk:w<cr>:!ruby %<cr>
+endfunction
+
+au BufNewFile,BufRead *.todo call ToDoSettings()
+au BufNewFile,BufRead *.php call PhpSettings()
+au BufNewFile,BufRead *.rb call RubySettings()
 
 nmap <C-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
@@ -204,9 +222,15 @@ vmap <C-j> xp`[V`]
 
 
 set laststatus=2
-set statusline=%f\ -\ FileType:\ %y
+"set statusline=%f\ -\ FileType:\ %y
+set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
 hi StatusLine ctermbg=Grey ctermfg=DarkGrey
 
 "Much nicer filename autocompletion
 "set wildmode=list:longest,list
 set wildmode=longest:full,full
+
+
+" Mac OS X  ( copy, Paste )
+vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
+nmap <C-v> :call setreg("\"",system("pbpaste"))<CR>p
