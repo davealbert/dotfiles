@@ -35,7 +35,7 @@ set showcmd
 set ignorecase
 syntax on               " syntax highlighting
 set hlsearch            " highlight the last searched term
-:nnoremap <CR> :nohlsearch<cr>
+:nnoremap // :nohlsearch<cr>
 
 filetype plugin on      " use the file type plugins
 
