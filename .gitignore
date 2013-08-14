@@ -3,3 +3,4 @@ macvim/tmp/*
 
 .DS_Store
 macvim/.netrwhist
+macvim/view/
