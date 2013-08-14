@@ -150,7 +150,7 @@ autocmd BufWritePre .*rc :%s/\s\+$//e
 autocmd BufWritePre *.todo :%s/\s\+$//e
 
 function! ToDoSettings()
-    map <Leader><Leader> :s/\[\s\]/\[x\]<cr><cr>:w<cr>
+    map <Leader><Leader> :s/\[\s\]/\[x\]<cr>//:w<cr>
     setlocal ft=todo
 endfunction
 
