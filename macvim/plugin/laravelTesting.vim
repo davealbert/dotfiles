@@ -8,7 +8,7 @@ command! -nargs=1 -complete=customlist,CompleteClassController Controller :call 
 command! -nargs=1 -complete=customlist,CompleteClassModel Model :call Model(<q-args>)
 
 function! Model(Name)
-    exec "tabedit app/tests/models/". a:Name.  "Test.php"
+    exec "tabedit app/tests/models/". a:Name.  "ModelTest.php"
     exec "vsplit app/models/" . a:Name . ".php"
 endfunction
 
