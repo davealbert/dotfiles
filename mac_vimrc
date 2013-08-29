@@ -15,19 +15,36 @@ map £ #
 map <f7> :tabp<CR>
 map <f8> :tabn<CR>
 
+set hidden
 set backup
 set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set spelllang=en_gb
-set smartindent
-set tabstop=2
+" size of a hard tabstop
+set tabstop=4
+
+" size of an "indent"
+set shiftwidth=4
+
+" a combination of spaces and tabs are used to simulate tab stops at a width
+" other than the (hard)tabstop
+"set softtabstop=4
+
+" always uses spaces instead of tab characters
+set expandtab
+
+
+" make "tab" insert indents instead of tabs at the beginning of a line
+"set smarttab
+"set smartindent
+
+
 set number
 map <C-l> :set nu!<CR>
 
 nnoremap <silent> <C-a> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 
-set shiftwidth=2
 set ai                  " auto indenting
 set history=10000       " keep 100 lines of history
 set ruler               " show the cursor position
@@ -83,12 +100,6 @@ imap <up> :echo 'No!'<cr>
 imap <down> :echo 'No!'<cr>
 imap <left> :echo 'No!'<cr>
 imap <right> :echo 'No!'<cr>
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
 
 set shell=bash
 "set shell=/bin/bash\ -i
@@ -236,3 +247,8 @@ nmap <C-v> :call setreg("\"",system("pbpaste"))<CR>p
 " Save folds
 autocmd BufWrite * mkview
 autocmd BufRead * silent loadview
+
+" Buffer Leader mappings
+map <leader>b :bn!<cr>
+map <leader>l :buffers<cr>
+:vsplit
