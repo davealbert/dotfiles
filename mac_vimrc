@@ -159,6 +159,8 @@ autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre .*rc :%s/\s\+$//e
 autocmd BufWritePre *.todo :%s/\s\+$//e
+autocmd BufWritePre *.m :%s/\s\+$//e
+autocmd BufWritePre *.h :%s/\s\+$//e
 
 function! ToDoSettings()
     map <Leader><Leader> :s/\[\s\]/\[x\]<cr>//:w<cr>
@@ -251,3 +253,7 @@ autocmd BufRead * silent loadview
 " Buffer Leader mappings
 map <leader>b :bn!<cr>
 map <leader>l :buffers<cr>
+
+
+
+nmap <silent> cp "_ciw<C-R>"jk
