@@ -92,14 +92,25 @@ endif
 set cursorline
 
 "disable arrow keys
-map <up> :echo 'No!'<cr>
-map <down> :echo 'No!'<cr>
-map <left> :echo 'No!'<cr>
-map <right> :echo 'No!'<cr>
-imap <up> :echo 'No!'<cr>
-imap <down> :echo 'No!'<cr>
-imap <left> :echo 'No!'<cr>
-imap <right> :echo 'No!'<cr>
+"map <up> :echo 'No!'<cr>
+"map <down> :echo 'No!'<cr>
+"map <left> :echo 'No!'<cr>
+"map <right> :echo 'No!'<cr>
+"imap <up> :echo 'No!'<cr>
+"imap <down> :echo 'No!'<cr>
+"imap <left> :echo 'No!'<cr>
+"imap <right> :echo 'No!'<cr>
+
+map <silent> <Up> :wincmd k<CR>
+map <silent> <Down> :wincmd j<CR>
+map <silent> <Left> :wincmd h<CR>
+map <silent> <Right> :wincmd l<CR>
+
+imap <silent> <Up> :wincmd k<CR>
+imap <silent> <Down> :wincmd j<CR>
+imap <silent> <Left> :wincmd h<CR>
+imap <silent> <Right> :wincmd l<CR>
+
 
 set shell=bash
 "set shell=/bin/bash\ -i
@@ -264,3 +275,12 @@ map <leader>l :buffers<cr>
 
 
 nmap <silent> cp "_ciw<C-R>"jk
+
+autocmd VimEnter * Explore
+:vsplit
+:vertical resize 20
+:wincmd l
+:split
+:wincmd j
+:resize 10
+
