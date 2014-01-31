@@ -276,11 +276,16 @@ map <leader>l :buffers<cr>
 
 nmap <silent> cp "_ciw<C-R>"jk
 
-autocmd VimEnter * Explore
-:vsplit
-:vertical resize 20
-:wincmd l
-:split
-:wincmd j
-:resize 10
+function! Ide()
+    exec ':vsplit'
+    exec ':vertical resize 20'
+    exec ':wincmd l'
+    exec ':split'
+    exec ':wincmd j'
+    exec ':resize 10'
+    exec ':wincmd h'
+    exec ':Explor'
+endfunction
+command! Ide call Ide()
+
 
