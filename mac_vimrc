@@ -183,17 +183,15 @@ function! CodeLeaderSettings(langExe)
     execute "imap <Leader><Leader> jk:w<cr>:!" . a:langExe . " %<cr>"
 endfunction
 
-function! CppCodeLeaderSettings()
+function! CppLeaderSetting()
     execute "map <Leader><Leader> :wa<cr>:!make<cr>"
     execute "imap <Leader><Leader> jk:wa<cr>:!make<cr>"
 endfunction
 
-
 au BufNewFile,BufRead *.php call CodeLeaderSettings("php")
 au BufNewFile,BufRead *.rb call CodeLeaderSettings("ruby")
 au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
-
-au BufNewFile,BufRead *.cpp call CppCodeLeaderSettings()
+au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
 
@@ -206,7 +204,6 @@ map <Leader>t :tabnew<Enter>
 map <Leader>w :close<Enter>
 
 command! Browser :! open -a Google\ Chrome.app %:p
-
 
 set wildmenu
 
