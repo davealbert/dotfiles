@@ -195,6 +195,9 @@ au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
 
+au BufNewFile,BufRead *.hbs set filetype=html
+au BufNewFile,BufRead *.ejs set filetype=html
+
 nmap <C-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
 imap <C-s> <Esc><C-s>
