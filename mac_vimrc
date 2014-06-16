@@ -21,10 +21,10 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set spelllang=en_gb
 " size of a hard tabstop
-set tabstop=4
+set tabstop=2
 
 " size of an "indent"
-set shiftwidth=4
+set shiftwidth=2
 
 " a combination of spaces and tabs are used to simulate tab stops at a width
 " other than the (hard)tabstop
@@ -196,6 +196,13 @@ au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
 au BufNewFile,BufRead *.cpp call CppCodeLeaderSettings()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
+au BufNewFile,BufRead *.ejs set filetype=html
+
+au BufNewFile,BufRead *.scss set filetype=scss.css
+
+if has("autocmd")
+  filetype plugin indent on
+endif
 
 nmap <C-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
@@ -205,7 +212,7 @@ imap <C-s> <Esc><C-s>
 map <Leader>t :tabnew<Enter>
 map <Leader>w :close<Enter>
 
-command! Browser :! open -a Google\ Chrome.app %:p
+command! Browser :! open -a Google\ Chrome.app "%"
 
 
 set wildmenu
@@ -273,9 +280,10 @@ map <leader>b :bn!<cr>
 map <leader>l :buffers<cr>
 
 
-
+" Change inner word to contents of anonymous buffer
 nmap <silent> cp "_ciw<C-R>"jk
 
+" Mock an ide environment - editor, file list, notes
 function! Ide()
     exec ':vsplit'
     exec ':vertical resize 20'
@@ -289,3 +297,37 @@ endfunction
 command! Ide call Ide()
 
 
+" git pull and reload all buffers
+fun! PullAndRefresh()
+  set noconfirm
+  !git pull
+  bufdo e!
+  set confirm
+endfun
+"
+" Not ready for a short cut yet
+"nmap <leader>gr call PullAndRefresh()
+
+" pip install jsbeautifier
+" Proper formatting of javascript
+"autocmd FileType javascript setlocal equalprg=js-beautify\ --stdin
+
+
+nnoremap <silent> <leader>e :call JSFormat()<cr>
+
+function! JSFormat()
+  " Preparation: save last search, and cursor position.
+  let l:win_view = winsaveview()
+  let l:last_search = getreg('/')
+
+  " call esformatter with the contents form and cleanup the extra newline
+  execute ":%!~/.vim/bin/js-format.sh"
+  if v:shell_error
+      echoerr 'format script failed'
+      undo
+      return 0
+  endif
+  " Clean up: restore previous search history, and cursor position
+  call winrestview(l:win_view)
+  call setreg('/', l:last_search)
+endfunction
