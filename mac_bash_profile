@@ -178,11 +178,11 @@ declare -x PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/b
 
 
 # Tell me the battery percentage when I open bash
-if [ $(uname) != Linux ]; then
-echo -n "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent |grep -v max
-echo -n "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent|grep -v max
-echo -n "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent|grep -v max
-fi
+#if [ $(uname) != Linux ]; then
+#echo -n "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent |grep -v max
+#echo -n "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent|grep -v max
+#echo -n "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent|grep -v max
+#fi
 
 export IRCNAME="I have nothing to say here."
 COLUMNS=250
