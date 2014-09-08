@@ -239,3 +239,5 @@ export DOCKER_HOST=tcp://127.0.0.1:4243
 alias KeeLocal='open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 alias KeeOE='open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
 
+
+complete -W "$(echo `cat ~/.ssh/config |grep host |grep -v -e "[h|H]ostname"| grep -v \#|cut -f 2 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
