@@ -3,12 +3,27 @@ function h { history |grep $1; };
 function genPass () {
    if [ "$1" == "" ]; then
       count=8;
+      amount=4;
    else
       count=$1;
+
+      if [ "$2" == "" ]; then
+         amount=4;
+      else
+         amount=$2;
+      fi
    fi
 
-   cat /dev/random| env LC_CTYPE=C tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?='|fold -w $count| head -n 4| grep -i '[!@#$%^&*()_+{}|:<>?=]'
+
+   cat /dev/random| env LC_CTYPE=C tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?='|fold -w $count| head -n $amount| grep -i '[!@#$%^&*()_+{}|:<>?=]'
 }
+
+# Google it!
+# @google <search term>
+function @google {
+   open "https://google.com/search?q=$*"
+}
+alias {goog,goo,g}=@google
 
 
 if [ $(uname) == Linux ]; then
@@ -160,6 +175,9 @@ alias p='clear;pwd'
 
 # Git aliases
 alias co='git checkout'
+alias s='git status'
+alias gitx='open -a GitX .'
+
 
 declare -x PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:$HOME/scripts:$PATH"
 
@@ -221,6 +239,15 @@ alias pp='python -mjson.tool'
 
 
 alias pass='read -p "password: " -s password && echo $password | md5 | pbcopy && unset password'
+
+export PATH=/usr/bin:$PATH
+export DOCKER_HOST=tcp://127.0.0.1:4243
+
+alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
+alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
+
+
+complete -W "$(echo `cat ~/.ssh/config |grep host |grep -v -e "[h|H]ostname"| grep -v \#|cut -f 2 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
 
 
 #export DOCKER_HOST=tcp://127.0.0.1:4243
