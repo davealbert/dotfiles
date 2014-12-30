@@ -167,11 +167,11 @@ declare -x PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/b
 
 
 # Tell me the battery percentage when I open bash
-if [ $(uname) != Linux ]; then
-echo -n "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent |grep -v max
-echo -n "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent|grep -v max
-echo -n "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent|grep -v max
-fi
+#if [ $(uname) != Linux ]; then
+#echo -n "BNBMouseDevice" ;ioreg -c BNBMouseDevice | grep BatteryPercent |grep -v max
+#echo -n "BNBTrackpadDevice";ioreg -c BNBTrackpadDevice | grep BatteryPercent|grep -v max
+#echo -n "AppleBluetoothHIDKeyboard";ioreg -c AppleBluetoothHIDKeyboard | grep BatteryPercent|grep -v max
+#fi
 
 export IRCNAME="I have nothing to say here."
 COLUMNS=250
@@ -221,3 +221,10 @@ alias pp='python -mjson.tool'
 
 
 alias pass='read -p "password: " -s password && echo $password | md5 | pbcopy && unset password'
+
+
+#export DOCKER_HOST=tcp://127.0.0.1:4243
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/davealbert/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+complete -W "$(docker 2>&1 |tail -n 35|cut -d' ' -f 5)" docker
