@@ -240,11 +240,17 @@ alias pp='python -mjson.tool'
 
 alias pass='read -p "password: " -s password && echo $password | md5 | pbcopy && unset password'
 
-export PATH=/usr/bin:$PATH
-export DOCKER_HOST=tcp://127.0.0.1:4243
 
 alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
 
 
 complete -W "$(echo `cat ~/.ssh/config |grep host |grep -v -e "[h|H]ostname"| grep -v \#|cut -f 2 -d ' ' | sed -e s/,.*//g | uniq | grep -v "\["`;)" ssh
+
+
+export PATH=/usr/bin:$PATH
+#export DOCKER_HOST=tcp://127.0.0.1:4243      # Symc
+export DOCKER_HOST=tcp://192.168.59.103:2376 # Home
+export DOCKER_CERT_PATH=/Users/davealbert/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+complete -W "$(docker 2>&1 |tail -n 35|cut -d' ' -f 5)" docker
