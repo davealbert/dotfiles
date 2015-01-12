@@ -174,7 +174,9 @@ autocmd BufWritePre *.m :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
 
 function! ToDoSettings()
-    map <Leader><Leader> :s/\[\s\]/\[x\]<cr>//:w<cr>
+    "map <Leader><Leader> :s/\[\s\]/\[x\]<cr>//A<space>\|<space><C-r>=strftime('%F')<CR>jk:w<cr>
+    map <Leader><Leader> :s/\[\s\]/\[x\]<cr>//<CR>jk:w<cr>
+    map <Leader>u :s/\[x\]/\[\ \]<cr>//<CR>jk:w<cr>
     setlocal ft=todo
 endfunction
 
@@ -194,7 +196,7 @@ au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
 au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
-au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.txt call ToDoSettings()
 
 au BufNewFile,BufRead *.scss set filetype=scss.css
 
@@ -275,9 +277,17 @@ nmap <C-v> :call setreg("\"",system("pbpaste"))<CR>p
 autocmd BufWrite * mkview
 autocmd BufRead * silent loadview
 
+function! List_and_goto_buffers()
+   exec ':buffers'
+   call inputsave()
+   let buffer = input('Buffer no: ')
+   call inputrestore()
+   exec ':b' . buffer
+endfunction
+
 " Buffer Leader mappings
 map <leader>b :bn!<cr>
-map <leader>l :buffers<cr>
+map <leader>l :call List_and_goto_buffers()<cr>
 
 
 " Change inner word to contents of anonymous buffer
@@ -331,3 +341,16 @@ function! JSFormat()
   call winrestview(l:win_view)
   call setreg('/', l:last_search)
 endfunction
+
+set noautochdir
+
+nnoremap <F4> :TlistToggle<CR>
+nnoremap <F8> :!/opt/local/bin/ctags -R **/*.py<CR>
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+" Only works on a mac
+map ˚ :wincmd h<CR>k<CR>
+map ∆ :wincmd h<CR>j<CR>
+
+
+
+
