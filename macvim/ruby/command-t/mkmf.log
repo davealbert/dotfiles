@@ -1,9 +1,22 @@
 have_header: checking for ruby.h... -------------------- yes
 
-"xcrun cc -E -I. -I/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/universal-darwin12.0 -I.  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE     -g -Os -pipe -fno-common -DENABLE_DTRACE  -fno-common  -pipe -fno-common    conftest.c -o conftest.i"
+"/usr/local/bin/gcc-4.6 -o conftest -I/Users/dave_albert/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin13.4.0 -I/Users/dave_albert/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/dave_albert/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe conftest.c  -L. -L/Users/dave_albert/.rvm/rubies/ruby-1.9.3-p551/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L. -L/usr/local/lib -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib      -lruby.1.9.1  -lpthread -ldl -lobjc "
 checked program was:
 /* begin */
-1: #include <ruby.h>
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"/usr/local/bin/gcc-4.6 -E -I/Users/dave_albert/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/x86_64-darwin13.4.0 -I/Users/dave_albert/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1/ruby/backward -I/Users/dave_albert/.rvm/rubies/ruby-1.9.3-p551/include/ruby-1.9.1 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE   -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include  -O3 -ggdb -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wimplicit-function-declaration  -fno-common -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <ruby.h>
 /* end */
 
 --------------------

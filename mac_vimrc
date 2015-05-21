@@ -12,8 +12,8 @@ imap £ #
 cmap £ #
 map £ #
 
-map <f7> :tabp<CR>
-map <f8> :tabn<CR>
+map tp :tabp<CR>
+map tn :tabn<CR>
 
 set hidden
 set backup
@@ -67,17 +67,30 @@ autocmd BufReadPost *
 " {{{1 GUI
 
 if has('gui_running')
+    function! MyTabLable()
+      let the_path = split(expand('%:p'),"/")
+      if len(the_path) > 2
+        let ret = the_path[len(the_path)-2]
+      else
+        let ret = "~"
+      endif
+      return ret
+    endfunction
+
+    "set guitablabel=%{MyTabLable()}
+    map tt :set guitablabel=%{MyTabLable()}<cr>
     set lines=70
-    set columns=100
-    set guioptions=cM
+    set columns=150
+    set guioptions=cMe
     set guicursor=a:blinkon0
     set cursorline
 
     if has("gui_win32")
         set guifont=Consolas:h10:cDEFAULT
     elseif has("gui_macvim")
-        set guifont=Monaco:h12.00
+        set guifont=Monaco:h16.00
         map <D-t> :CommandT<CR>
+        colorscheme railscasts2
     endif
 
     if has('spell')
@@ -86,6 +99,7 @@ if has('gui_running')
         set spellfile=~/.vim/spell/spellfile.add
         set spellsuggest=best,10
     endif
+
 endif
 
 "FROM G.B.
@@ -115,12 +129,12 @@ imap <silent> <Right> :wincmd l<CR>
 set shell=bash
 "set shell=/bin/bash\ -i
 
+color grb256
+set t_Co=256
 
 "Lighter looking colors"
 "set t_Co=8 " 256 colors
 "set background=dark
-color grb256
-set t_Co=256
 "color railscasts
 
 
@@ -170,6 +184,7 @@ autocmd BufWritePre *.css :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
 autocmd BufWritePre .*rc :%s/\s\+$//e
 autocmd BufWritePre *.todo :%s/\s\+$//e
+autocmd BufWritePre *.txt :%s/\s\+$//e
 autocmd BufWritePre *.m :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
 
@@ -193,12 +208,18 @@ endfunction
 au BufNewFile,BufRead *.php call CodeLeaderSettings("php")
 au BufNewFile,BufRead *.rb call CodeLeaderSettings("ruby")
 au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
+au BufNewFile,BufRead *.ex call CodeLeaderSettings("elixir")
+au BufNewFile,BufRead *.pl call CodeLeaderSettings("perl")
+au BufNewFile,BufRead *.io call CodeLeaderSettings("io")
 au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
 au BufNewFile,BufRead *.txt call ToDoSettings()
 
 au BufNewFile,BufRead *.scss set filetype=scss.css
+
+autocmd BufNewFile,BufRead *.io set filetype=io
+autocmd BufNewFile,BufRead .iorc set filetype=io
 
 if has("autocmd")
   filetype plugin indent on
@@ -353,4 +374,4 @@ map ∆ :wincmd h<CR>j<CR>
 
 
 
-
+let g:netrw_liststyle=3
