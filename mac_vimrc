@@ -191,6 +191,7 @@ endfunction
 au BufNewFile,BufRead *.php call CodeLeaderSettings("php")
 au BufNewFile,BufRead *.rb call CodeLeaderSettings("ruby")
 au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
+au BufNewFile,BufRead *.js call CodeLeaderSettings("node")
 au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
@@ -277,7 +278,15 @@ autocmd BufRead * silent loadview
 
 " Buffer Leader mappings
 map <leader>b :bn!<cr>
-map <leader>l :buffers<cr>
+map <leader>l :call List_and_goto_buffers()<cr>
+
+function! List_and_goto_buffers()
+   exec ':buffers'
+   call inputsave()
+   let buffer = input('Buffer no: ')
+   call inputrestore()
+   exec ':b' . buffer
+endfunction
 
 
 " Change inner word to contents of anonymous buffer
