@@ -193,6 +193,7 @@ endfunction
 au BufNewFile,BufRead *.php call CodeLeaderSettings("php")
 au BufNewFile,BufRead *.rb call CodeLeaderSettings("ruby")
 au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
+au BufNewFile,BufRead *.js call CodeLeaderSettings("node")
 au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
