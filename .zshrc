@@ -52,7 +52,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z)
+plugins=(git chucknorris z docker)
 
 # User configuration
 
@@ -97,7 +97,13 @@ function cdd {
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+alias vim='mvim -v'
+
+# Git aliases
+alias co='git checkout'
+alias gitx='open -a GitX .'
 alias s='git status'
+
 alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
 
