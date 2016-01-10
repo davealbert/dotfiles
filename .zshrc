@@ -1,6 +1,6 @@
-DEFAULT_USER=dave_albert
+DEFAULT_USER=davealbert
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/dave_albert/.oh-my-zsh
+export ZSH=/Users/davealbert/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -56,7 +56,7 @@ plugins=(git chucknorris z docker)
 
 # User configuration
 
-export PATH="/Users/dave_albert/.rvm/gems/ruby-2.2.0/bin:/Users/dave_albert/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave_albert/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave_albert/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave_albert/.rvm/gems/ruby-2.2.0/bin:/Users/dave_albert/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave_albert/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave_albert/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave_albert/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin"
+export PATH="/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/davealbert/.rvm/gems/ruby-2.0.0-head/bin:/Users/davealbert/.rvm/gems/ruby-2.0.0-head@global/bin:/Users/davealbert/.rvm/rubies/ruby-2.0.0-head/bin:/Users/davealbert/.rvm/bin:/Users/davealbert/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/davealbert/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/davealbert/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/davealbert/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -97,21 +97,22 @@ function cdd {
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-alias vim='mvim -v'
+#alias vim='mvim -v'
 
 # Git aliases
 alias co='git checkout'
 alias gitx='open -a GitX .'
 alias s='git status'
+alias l="ls -lthr"
 
-alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
-alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
+#alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
+#alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
 
 
-export P4PORT="ssl:perforce.ges.symantec.com:1666"
-export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
-#export P4CLIENT="Dave_Albert_Ebiz-oe"
-export P4USER="dave_albert"
-$(boot2docker shellinit)
+#export P4PORT="ssl:perforce.ges.symantec.com:1666"
+#export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
+##export P4CLIENT="Dave_Albert_Ebiz-oe"
+#export P4USER="dave_albert"
+#$(boot2docker shellinit)
 
 chuck_cow
