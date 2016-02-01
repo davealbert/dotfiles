@@ -52,7 +52,8 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker)
+plugins=(git chucknorris z docker jira vagrant fabric)
+
 
 # User configuration
 
@@ -95,8 +96,16 @@ function cdd {
    cd $(pwd -P)
 }
 
+function cr {
+   local url="https://collaborator.symc.symantec.com/ui#"
+   if [[ "x$1" != "x" ]]; then
+      url="${url}review:id=$1"
+   fi;
+   open "$url"
+}
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+alias l='ls -lthr'
 alias vim='mvim -v'
 
 # Git aliases
@@ -114,4 +123,15 @@ export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
 export P4USER="dave_albert"
 $(boot2docker shellinit)
 
+cat ~/.ssh/ssh_conf.d/* > ~/.ssh/config
+
+JIRA_URL="http://ecom.jira.symantec.com/"
 chuck_cow
+
+export GRANITE_ACCESS_KEY_ID=442449DBBD6F4F20985F35C0B0BFFA8F
+export GRANITE_SECRET_ACCESS_KEY=MzI1MWQ4MjUtMzg2Yy00MDdjLWFlZGEtMGUyYjZkMzhlYzdm
+export GRANITE_PRIVATE_KEY_PATH=/Users/dave_albert/.vagrant.d/gl1.pem
+export GRANITE_KEYPAIR_NAME=gl1
+export EDITOR=vim
+
+DISABLE_AUTO_TITLE=true
