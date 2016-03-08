@@ -1,8 +1,8 @@
 [user]
 	name = Dave Albert
-	email = dave.albert@publicisdhealthcare.ie
+	email = dave.albert@gmail.com
 [diff]
-	external = /Users/DaveAlbert/scripts/git-diff-wrapper.sh
+	external = /Users/davealbert/scripts/git-diff-wrapper.sh
 [pager]
    diff = 
 [alias]
@@ -11,7 +11,7 @@
    lg = !"git lg1"
 
 [core]
-	excludesfile = /Users/DaveAlbert/.gitignore_global
+	excludesfile = /Users/davealbert/.gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
