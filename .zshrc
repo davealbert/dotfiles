@@ -1,6 +1,6 @@
-DEFAULT_USER=dave_albert
+DEFAULT_USER=dave
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/dave_albert/.oh-my-zsh
+export ZSH=/Users/dave/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -57,7 +57,7 @@ plugins=(git chucknorris z docker jira vagrant fabric)
 
 # User configuration
 
-export PATH="/Users/dave_albert/.rvm/gems/ruby-2.2.0/bin:/Users/dave_albert/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave_albert/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave_albert/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave_albert/.rvm/gems/ruby-2.2.0/bin:/Users/dave_albert/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave_albert/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave_albert/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave_albert/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin"
+export PATH="/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -120,7 +120,7 @@ alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications
 export P4PORT="ssl:perforce.ges.symantec.com:1666"
 export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
 #export P4CLIENT="Dave_Albert_Ebiz-oe"
-export P4USER="dave_albert"
+export P4USER="dave"
 $(boot2docker shellinit)
 
 cat ~/.ssh/ssh_conf.d/* > ~/.ssh/config
@@ -130,8 +130,16 @@ chuck_cow
 
 export GRANITE_ACCESS_KEY_ID=442449DBBD6F4F20985F35C0B0BFFA8F
 export GRANITE_SECRET_ACCESS_KEY=MzI1MWQ4MjUtMzg2Yy00MDdjLWFlZGEtMGUyYjZkMzhlYzdm
-export GRANITE_PRIVATE_KEY_PATH=/Users/dave_albert/.vagrant.d/gl1.pem
+export GRANITE_PRIVATE_KEY_PATH=/Users/dave/.vagrant.d/gl1.pem
 export GRANITE_KEYPAIR_NAME=gl1
 export EDITOR=vim
 
 DISABLE_AUTO_TITLE=true
+
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/dave/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+# Run this command to configure your shell:
+# # eval $(docker-machine env default)
+
