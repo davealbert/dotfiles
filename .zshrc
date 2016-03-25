@@ -114,5 +114,11 @@ alias l="ls -lthr"
 ##export P4CLIENT="Dave_Albert_Ebiz-oe"
 #export P4USER="dave_albert"
 #$(boot2docker shellinit)
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/davealbert/.docker/machine/machines/default"
+export DOCKER_MACHINE_NAME="default"
+
+DISABLE_AUTO_TITLE=true
 
 chuck_cow
