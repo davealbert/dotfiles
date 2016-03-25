@@ -172,6 +172,8 @@ autocmd BufWritePre .*rc :%s/\s\+$//e
 autocmd BufWritePre *.todo :%s/\s\+$//e
 autocmd BufWritePre *.m :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
+autocmd BufWritePre *.jade :%s/\s\+$//e
+autocmd BufWritePre *.yml :%s/\s\+$//e
 
 function! ToDoSettings()
     "map <Leader><Leader> :s/\[\s\]/\[x\]<cr>//A<space>\|<space><C-r>=strftime('%F')<CR>jk:w<cr>
