@@ -117,10 +117,12 @@ alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications
 alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
 
 
+export P4USER="dave_albert"
 export P4PORT="ssl:perforce.ges.symantec.com:1666"
 export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
+export P4CLIENTPATH=/Users/dave_albert/Perforce/dave_albert_ebiz-oe-oi
 #export P4CLIENT="Dave_Albert_Ebiz-oe"
-export P4USER="dave_albert"
+#
 $(boot2docker shellinit)
 
 cat ~/.ssh/ssh_conf.d/* > ~/.ssh/config
