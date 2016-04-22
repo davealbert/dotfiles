@@ -76,7 +76,9 @@ if has('gui_running')
     if has("gui_win32")
         set guifont=Consolas:h10:cDEFAULT
     elseif has("gui_macvim")
-        set guifont=Monaco:h12.00
+        set guifont=Monaco:h14.00
+        set columns=200
+        color railscasts2
         map <D-t> :CommandT<CR>
     endif
 
@@ -121,7 +123,7 @@ set shell=bash
 "set background=dark
 color grb256
 set t_Co=256
-"color railscasts
+"color railscasts2
 
 
 set switchbuf=useopen
