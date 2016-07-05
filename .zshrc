@@ -1,6 +1,8 @@
 DEFAULT_USER=dave_albert
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/dave_albert/.oh-my-zsh
+bindkey \^U backward-kill-line
+
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
