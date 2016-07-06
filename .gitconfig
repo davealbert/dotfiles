@@ -1,6 +1,6 @@
 [user]
 	name = Dave Albert
-	email = dave.albert@publicisdhealthcare.ie
+   email = dave.albert@gmail.com
 [diff]
 	external = /Users/DaveAlbert/scripts/git-diff-wrapper.sh
 [pager]
