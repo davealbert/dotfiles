@@ -259,3 +259,4 @@ declare -x DOCKER_HOST="tcp://192.168.99.100:2376"
 declare -x DOCKER_MACHINE_NAME="default"
 declare -x DOCKER_TLS_VERIFY="1"
 complete -W "$(docker 2>&1 |tail -n 35|cut -d' ' -f 5)" docker
+export GOPATH="/Users/davealbert/code/_Training/go"
