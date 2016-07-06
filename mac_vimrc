@@ -364,5 +364,5 @@ map ∆ :wincmd h<CR>j<CR>
 map <leader>pmain iif __name__ == "__main__":jkomain(sys.argv[1:])
 
 
-set wildignore=.o,.obj,.git,node_modules/**,app/node_modules/**
+set wildignore=.o,.obj,.git,node_modules/**,app/node_modules/**,.DS_Store,.gitkeep
 let g:CommandTTraverseSCM='pwd'
