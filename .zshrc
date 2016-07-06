@@ -52,7 +52,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker vagrant)
+plugins=(git chucknorris z docker vagrant tmuxinator)
 
 # User configuration
 
@@ -104,6 +104,7 @@ alias co='git checkout'
 alias gitx='open -a GitX .'
 alias s='git status'
 alias l="ls -lthr"
+alias mux='tmuxinator'
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 #alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
@@ -120,5 +121,8 @@ export DOCKER_CERT_PATH="/Users/davealbert/.docker/machine/machines/default"
 export DOCKER_MACHINE_NAME="default"
 
 DISABLE_AUTO_TITLE=true
+export EDITOR='vim'
+
 
 chuck_cow
+export GOPATH="/Users/davealbert/code/_Training/go"
