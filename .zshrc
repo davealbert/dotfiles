@@ -114,6 +114,8 @@ alias vim='mvim -v'
 alias co='git checkout'
 alias gitx='open -a GitX .'
 alias s='git status'
+alias now='date -u +"%Y%m%dT%H%M"'
+
 
 alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
@@ -123,6 +125,7 @@ export P4USER="dave_albert"
 export P4PORT="ssl:perforce.ges.symantec.com:1666"
 export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
 export P4CLIENTPATH=/Users/dave_albert/Perforce/dave_albert_ebiz-oe-oi
+export ANSIBLE_REPO=/Users/dave_albert/code/Stash/Ansible
 #export P4CLIENT="Dave_Albert_Ebiz-oe"
 #
 $(boot2docker shellinit)
@@ -139,3 +142,4 @@ export GRANITE_KEYPAIR_NAME=gl1
 export EDITOR=vim
 
 DISABLE_AUTO_TITLE=true
+export GOPATH=/Users/dave_albert/code/_Training/go
