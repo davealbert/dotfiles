@@ -1,6 +1,6 @@
 [user]
 	name = Dave Albert
-   email = dave.albert@gmail.com
+	email = dave.albert@gmail.com
 [diff]
 	external = /Users/DaveAlbert/scripts/git-diff-wrapper.sh
 [pager]
@@ -11,7 +11,7 @@
    lg = !"git lg1"
 
 [core]
-	excludesfile = /Users/DaveAlbert/.gitignore_global
+	excludesfile = /Users/davealbert/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
@@ -21,3 +21,5 @@
 	trustExitCode = true
 [push]
 	default = matching
+[commit]
+	template = /Users/davealbert/.stCommitMsg
