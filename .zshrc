@@ -53,11 +53,12 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker vagrant tmuxinator aws)
+plugins=(git chucknorris z docker vagrant tmuxinator fabric aws)
 
 # User configuration
 
-export PATH="/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/Users/davealbert/.rvm/gems/ruby-2.0.0-head/bin:/Users/davealbert/.rvm/gems/ruby-2.0.0-head@global/bin:/Users/davealbert/.rvm/rubies/ruby-2.0.0-head/bin:/Users/davealbert/.rvm/bin:/Users/davealbert/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/davealbert/scripts:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/davealbert/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/davealbert/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin"
+export PATH="/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin:/usr/local/go/bin"
+#
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -141,4 +142,16 @@ export EDITOR='vim'
 
 
 chuck_cow
+
 export GOPATH="/Users/davealbert/code/_Training/go"
+
+# AWS
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
+export PATH=$PATH:$EC2_HOME/bin
+export AWS_ACCESS_KEY=AKIAJSERM2IHEWGII67Q
+export AWS_SECRET_KEY=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
+
+
+export NVM_DIR="/Users/dave/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
