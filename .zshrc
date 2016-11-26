@@ -53,7 +53,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker vagrant tmuxinator)
+plugins=(git chucknorris z docker vagrant tmuxinator aws)
 
 # User configuration
 
@@ -106,6 +106,21 @@ alias gitx='open -a GitX .'
 alias s='git status'
 alias l="ls -lthr"
 alias mux='tmuxinator'
+
+function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
+
+function ss () {
+   LIST=$(ack $1 /Users/davealbert/code/_One15Digital/sysAdmin/ansible/hosts|grep -v "^#")
+   LINES=$(echo ${LIST}|wc -l)
+   if [[ $LINES > 1 ]];
+   then
+      echo $LIST
+   else;
+      ssh dave@$(echo $LIST|cut -d"=" -f 4) -p5353
+   fi
+}
+
+
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 #alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
