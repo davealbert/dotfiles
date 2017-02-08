@@ -153,5 +153,5 @@ export AWS_ACCESS_KEY=AKIAJSERM2IHEWGII67Q
 export AWS_SECRET_KEY=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
 
 
-export NVM_DIR="/Users/dave/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#export NVM_DIR="/Users/dave/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
