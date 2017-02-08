@@ -111,7 +111,7 @@ alias mux='tmuxinator'
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
 
 function ss () {
-   LIST=$(ack $1 /Users/davealbert/code/_One15Digital/sysAdmin/ansible/hosts|grep -v "^#")
+   LIST=$(ack $1 /Users/davealbert/code/_One15Digital/sysAdmin/ansible/hosts|grep -v "^#" |uniq)
    LINES=$(echo ${LIST}|wc -l)
    if [[ $LINES > 1 ]];
    then
@@ -132,10 +132,10 @@ function ss () {
 ##export P4CLIENT="Dave_Albert_Ebiz-oe"
 #export P4USER="dave_albert"
 #$(boot2docker shellinit)
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/davealbert/.docker/machine/machines/default"
-export DOCKER_MACHINE_NAME="default"
+#export DOCKER_TLS_VERIFY="1"
+#export DOCKER_HOST="tcp://192.168.99.100:2376"
+#export DOCKER_CERT_PATH="/Users/davealbert/.docker/machine/machines/default"
+#export DOCKER_MACHINE_NAME="default"
 
 DISABLE_AUTO_TITLE=true
 export EDITOR='vim'
