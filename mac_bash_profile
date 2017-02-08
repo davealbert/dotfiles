@@ -254,9 +254,9 @@ export PATH=/usr/bin:$PATH
 #export DOCKER_HOST=tcp://192.168.59.103:2376 # Home
 #export DOCKER_CERT_PATH=/Users/davealbert/.boot2docker/certs/boot2docker-vm
 #export DOCKER_TLS_VERIFY=1
-declare -x DOCKER_CERT_PATH="/Users/davealbert/.docker/machine/machines/default"
-declare -x DOCKER_HOST="tcp://192.168.99.100:2376"
-declare -x DOCKER_MACHINE_NAME="default"
-declare -x DOCKER_TLS_VERIFY="1"
+#declare -x DOCKER_CERT_PATH="/Users/davealbert/.docker/machine/machines/default"
+#declare -x DOCKER_HOST="tcp://192.168.99.100:2376"
+#declare -x DOCKER_MACHINE_NAME="default"
+#declare -x DOCKER_TLS_VERIFY="1"
 complete -W "$(docker 2>&1 |tail -n 35|cut -d' ' -f 5)" docker
 export GOPATH="/Users/davealbert/code/_Training/go"
