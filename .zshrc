@@ -111,13 +111,19 @@ alias mux='tmuxinator'
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
 
 function ss () {
+   CMD="${@:2}"
    LIST=$(ack $1 /Users/davealbert/code/_One15Digital/sysAdmin/ansible/hosts|grep -v "^#" |uniq)
    LINES=$(echo ${LIST}|wc -l)
    if [[ $LINES > 1 ]];
    then
       echo $LIST
    else;
-      ssh dave@$(echo $LIST|cut -d"=" -f 4) -p5353
+      if [[ "${CMD}x" == "x" ]];
+      then
+         ssh dave@$(echo $LIST|cut -d"=" -f 4) -p5353
+      else
+         ssh dave@$(echo $LIST|cut -d"=" -f 4) -p5353 $CMD
+      fi;
    fi
 }
 
