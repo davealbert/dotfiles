@@ -107,6 +107,9 @@ alias gitx='open -a GitX .'
 alias s='git status'
 alias l="ls -lthr"
 alias mux='tmuxinator'
+alias lynx='/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx'
+alias vim="vim -S ~/.vimrc"
+
 
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
 
