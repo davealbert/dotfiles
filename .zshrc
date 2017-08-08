@@ -130,6 +130,21 @@ function ss () {
    fi
 }
 
+function focus {
+    clear
+    cat ~/focus.txt
+    if [[ "x$1" == "x" ]]
+    then
+        TIME=1500
+    else
+        TIME=$(( $1 * 60 ))
+    fi
+    echo $TIME
+    sleep $TIME
+    say aaaaaaaaaaaaaaaaaaaaaaaaaa
+    say times up. take a minute. ree focus.
+}
+
 
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
