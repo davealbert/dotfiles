@@ -1,6 +1,6 @@
 [user]
 	name = Dave Albert
-	email = dave.albert@gmail.com
+	email = dave@one15digital.com
 [diff]
 	external = /Users/DaveAlbert/scripts/git-diff-wrapper.sh
 [pager]
@@ -11,13 +11,13 @@
    lg = !"git lg1"
 
 [core]
-	excludesfile = /Users/dave/.gitignore_global
+	excludesfile = /Users/davealbert/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Users/dave/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [push]
 	default = matching

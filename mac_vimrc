@@ -12,8 +12,10 @@ imap £ #
 cmap £ #
 map £ #
 
-map <f7> :tabp<CR>
-map <f8> :tabn<CR>
+map <leader>[ :tabp<CR>
+map <leader>] :tabn<CR>
+map <leader>\| :vsplit<CR>
+map <leader>- :split<CR>
 
 set hidden
 set backup
@@ -21,14 +23,15 @@ set backupdir=~/.vim/backup
 set directory=~/.vim/tmp
 set spelllang=en_gb
 " size of a hard tabstop
-set tabstop=2
+set tabstop=4
+
 
 " size of an "indent"
-set shiftwidth=2
+set shiftwidth=4
 
 " a combination of spaces and tabs are used to simulate tab stops at a width
 " other than the (hard)tabstop
-"set softtabstop=4
+set softtabstop=4
 
 " always uses spaces instead of tab characters
 set expandtab
@@ -126,7 +129,7 @@ set t_Co=256
 
 set switchbuf=useopen
 let mapleader=","
-set showtabline=2
+set showtabline=4
 set cmdheight=2
 syntax on
 
@@ -366,3 +369,8 @@ map <leader>pmain iif __name__ == "__main__":jkomain(sys.argv[1:])
 
 set wildignore=.o,.obj,.git,node_modules/**,app/node_modules/**,.DS_Store,.gitkeep
 let g:CommandTTraverseSCM='pwd'
+
+
+set colorcolumn=81
+highlight ColorColumn ctermbg=59
+
