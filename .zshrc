@@ -159,7 +159,7 @@ function focus {
 
 
 function tweet {
-        FILENAME=old-sckool-twitter.txt
+        FILENAME=old-skool-twitter.txt
         TMPFILE=tweet.tmp
         LINENUM=18
         pushd ~/code/davealbert.github.io/textfiles
