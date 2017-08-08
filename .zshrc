@@ -130,22 +130,49 @@ function ss () {
    fi
 }
 
+
+
 function focus {
     clear
     cat ~/focus.txt
+    input="x"
     if [[ "x$1" == "x" ]]
     then
         TIME=1500
     else
         TIME=$(( $1 * 60 ))
     fi
-    echo $TIME
-    sleep $TIME
+    for I in {1..$TIME}
+    do
+       if [[ $input != "x" ]]
+       then
+          clear
+          cat ~/focus.txt
+          echo $I of $TIME
+          input="x"
+       fi
+       read -t 1 input #Any input will display status
+    done
     say aaaaaaaaaaaaaaaaaaaaaaaaaa
     say times up. take a minute. ree focus.
 }
 
 
+function tweet {
+        FILENAME=old-sckool-twitter.txt
+        TMPFILE=tweet.tmp
+        LINENUM=18
+        pushd ~/code/davealbert.github.io/textfiles
+        head -n $LINENUM $FILENAME > $TMPFILE
+        date >> $TMPFILE
+        echo "- $*" >> $TMPFILE
+        tail -n +$LINENUM $FILENAME >> $TMPFILE
+        cat $TMPFILE > $FILENAME
+        git add $FILENAME
+        git commit -m "OSK-Tweet: $*"
+        git push
+        rm $TMPFILE
+}
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 #alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
