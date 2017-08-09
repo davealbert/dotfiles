@@ -52,7 +52,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker jira vagrant fabric)
+plugins=(git chucknorris z docker vagrant fabric)
 
 
 # User configuration
@@ -114,32 +114,17 @@ alias gitx='open -a GitX .'
 alias s='git status'
 
 alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
-alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
 
-
-export P4PORT="ssl:perforce.ges.symantec.com:1666"
-export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
-#export P4CLIENT="Dave_Albert_Ebiz-oe"
-export P4USER="dave"
 $(boot2docker shellinit)
 
 cat ~/.ssh/ssh_conf.d/* > ~/.ssh/config
 
-JIRA_URL="http://ecom.jira.symantec.com/"
 chuck_cow
 
-export GRANITE_ACCESS_KEY_ID=442449DBBD6F4F20985F35C0B0BFFA8F
-export GRANITE_SECRET_ACCESS_KEY=MzI1MWQ4MjUtMzg2Yy00MDdjLWFlZGEtMGUyYjZkMzhlYzdm
-export GRANITE_PRIVATE_KEY_PATH=/Users/dave/.vagrant.d/gl1.pem
-export GRANITE_KEYPAIR_NAME=gl1
 export EDITOR=vim
 
 DISABLE_AUTO_TITLE=true
 
-export DOCKER_TLS_VERIFY="1"
-export DOCKER_HOST="tcp://192.168.99.100:2376"
-export DOCKER_CERT_PATH="/Users/dave/.docker/machine/machines/default"
-export DOCKER_MACHINE_NAME="default"
 # Run this command to configure your shell:
 # # eval $(docker-machine env default)
 
