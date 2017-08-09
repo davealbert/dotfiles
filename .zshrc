@@ -175,18 +175,6 @@ function tweet {
 }
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
-#alias KeeOE='echo -n ~/code/KeePass/OE-vault.key|pbcopy && open -n /Applications/KeePassX.app ~/Perforce/dave_albert_eStore/depot/eStore/OE/OE_keychain.kdb'
-
-
-#export P4PORT="ssl:perforce.ges.symantec.com:1666"
-#export P4CLIENT="Dave_Albert_Ebiz-oe-oi"
-##export P4CLIENT="Dave_Albert_Ebiz-oe"
-#export P4USER="dave_albert"
-#$(boot2docker shellinit)
-#export DOCKER_TLS_VERIFY="1"
-#export DOCKER_HOST="tcp://192.168.99.100:2376"
-#export DOCKER_CERT_PATH="/Users/davealbert/.docker/machine/machines/default"
-#export DOCKER_MACHINE_NAME="default"
 
 DISABLE_AUTO_TITLE=true
 export EDITOR='vim'
@@ -196,13 +184,7 @@ chuck_cow
 
 export GOPATH="/Users/davealbert/code/_Training/go"
 
-# AWS
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
 export PATH=$PATH:$EC2_HOME/bin
-export AWS_ACCESS_KEY=AKIAJSERM2IHEWGII67Q
-export AWS_SECRET_KEY=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
 
-
-#export NVM_DIR="/Users/dave/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
