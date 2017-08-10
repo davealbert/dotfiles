@@ -159,20 +159,37 @@ function focus {
 
 
 function tweet {
-        FILENAME=old-skool-twitter.txt
-        TMPFILE=tweet.tmp
-        LINENUM=18
-        pushd ~/code/davealbert.github.io/textfiles
-        head -n $LINENUM $FILENAME > $TMPFILE
-        date >> $TMPFILE
-        echo "- $*" >> $TMPFILE
-        tail -n +$LINENUM $FILENAME >> $TMPFILE
-        cat $TMPFILE > $FILENAME
-        git add $FILENAME
-        git commit -m "OSK-Tweet: $*"
-        git push
-        rm $TMPFILE
+    if [[ "$*x" == "x" ]];
+    then
+        echo Usage: $0 \"Status message\"
+        return
+    fi
+    FILENAME=old-skool-twitter.txt
+    TMPFILE=tweet.tmp
+    LINENUM=18
+    pushd ~/code/davealbert.github.io/textfiles
+    head -n $LINENUM $FILENAME > $TMPFILE
+    date >> $TMPFILE
+    echo "- $*" >> $TMPFILE
+    tail -n +$LINENUM $FILENAME >> $TMPFILE
+    cat $TMPFILE > $FILENAME
+    git add $FILENAME
+    git commit -m "OSK-Tweet: $*"
+    git push
+    rm $TMPFILE
 }
+
+function t {
+    if [[ "$*x" == "x" ]];
+    then
+        echo Usage: $0 \"Status message\"
+        return
+    fi
+
+    perl ~/code/oysttyer/oysttyer.pl -status="$*"
+    tweet "$*"
+  }
+
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 
