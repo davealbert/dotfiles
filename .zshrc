@@ -149,6 +149,7 @@ function focus {
           clear
           cat ~/focus.txt
           echo $I of $TIME
+          printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
           input="x"
        fi
        read -t 1 input #Any input will display status
