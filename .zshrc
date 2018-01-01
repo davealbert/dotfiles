@@ -53,7 +53,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker vagrant tmuxinator fabric aws)
+plugins=(git chucknorris z docker vagrant tmuxinator fabric aws )
 
 # User configuration
 
@@ -109,6 +109,8 @@ alias l="ls -lthr"
 alias mux='tmuxinator'
 alias lynx='/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx'
 alias vim="vim -S ~/.vimrc"
+alias now="date -u +\"%Y%m%dT%H%M%S\""
+alias ts="date -u +\"%Y%m%dT%H%M%S\""
 
 
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
@@ -191,13 +193,25 @@ function t {
   }
 
 
+function koan {
+    if [[ "x" == "x${1}" ]];
+    then
+        NUM=$(( ( RANDOM % 101 )  + 1 ))
+    else
+        NUM=$1
+    fi;
+    KOAN=$(ls -1 ~/koan|grep -e "^${NUM}[a-z]")
+    elinks -dump ~/koan/${KOAN}|less
+}
+
+
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 
 DISABLE_AUTO_TITLE=true
 export EDITOR='vim'
 
 
-chuck_cow
+#chuck_cow
 
 export GOPATH="/Users/davealbert/code/_Training/go"
 
