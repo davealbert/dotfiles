@@ -53,7 +53,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker vagrant tmuxinator fabric aws)
+plugins=(git chucknorris z docker vagrant tmuxinator fabric aws kubectl)
 
 # User configuration
 
@@ -131,31 +131,35 @@ function ss () {
 }
 
 
-
-function focus {
-    clear
-    cat ~/focus.txt
-    input="x"
-    if [[ "x$1" == "x" ]]
-    then
-        TIME=1500
-    else
-        TIME=$(( $1 * 60 ))
-    fi
-    for I in {1..$TIME}
-    do
-       if [[ $input != "x" ]]
-       then
-          clear
-          cat ~/focus.txt
-          echo $I of $TIME
-          printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
-          input="x"
-       fi
-       read -t 1 input #Any input will display status
-    done
-    say aaaaaaaaaaaaaaaaaaaaaaaaaa
-    say times up. take a minute. ree focus.
+focus () {
+   START=$(date)
+   clear
+   echo $START
+   cat ~/focus.txt
+   input="x"
+   if [[ "x$1" = "x" ]]
+   then
+      TIME=1500
+   else
+      TIME=$(( $1 * 60 ))
+   fi
+   for I in {1..$TIME}
+   do
+      if [[ $input != "x" ]]
+      then
+         clear
+         echo $START
+         cat ~/focus.txt
+         echo $I of $TIME
+         printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
+         input="x"
+      fi
+      read -t 1 input
+   done
+   echo $START
+   date
+   say "hey yo hey yo hey yo hey yo hey yo hey yo"
+   say times up. take a minute. ree focus.
 }
 
 
@@ -205,4 +209,7 @@ export GOPATH="/Users/davealbert/code/_Training/go"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
 export PATH=$PATH:$EC2_HOME/bin
+
+autoload bashcompinit && bashcompinit
+eval "$(register-python-argcomplete az)"
 
