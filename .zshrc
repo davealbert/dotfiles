@@ -53,42 +53,13 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git chucknorris z docker vagrant tmuxinator fabric aws kubectl)
+plugins=(git docker vagrant aws kubectl)
 
 # User configuration
 
 export PATH="/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin:/usr/local/go/bin"
-#
-# export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-autoload ztodo
 
 function cdd {
    if [[ "x$1" != "x" ]]; then
@@ -112,6 +83,11 @@ alias vim="vim -S ~/.vimrc"
 alias now="date -u +\"%Y%m%dT%H%M%S\""
 alias ts="date -u +\"%Y%m%dT%H%M%S\""
 
+# Kubernetes aliases
+alias prodkube='az acs kubernetes get-credentials -g medit-acs-rg -n medit-acs'
+alias testkube='az aks get-credentials  -g medit-test -n aks-medit-test'
+alias whichkube='kubectl config current-context'
+alias watchkube='watch "kubectl get nodes &&echo && kubectl get pods -o wide && echo && kubectl get pvc && echo && kubectl get svc && echo && kubectl get cs && echo && kubectl get storageclass && echo && kubectl get deployments"'
 
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
 
@@ -215,15 +191,16 @@ function koan {
 DISABLE_AUTO_TITLE=true
 export EDITOR='vim'
 
-
-#chuck_cow
-
 export GOPATH="/Users/davealbert/code/_Training/go"
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
 export PATH=$PATH:$EC2_HOME/bin
 
+# Azure-cli (az) tab completion
 autoload bashcompinit && bashcompinit
 eval "$(register-python-argcomplete az)"
+
+# Helm tab completion
+source <(helm completion zsh)
 
