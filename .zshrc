@@ -88,6 +88,8 @@ alias prodkube='az acs kubernetes get-credentials -g medit-acs-rg -n medit-acs'
 alias testkube='az aks get-credentials  -g medit-test -n aks-medit-test'
 alias whichkube='kubectl config current-context'
 alias watchkube='watch "kubectl get nodes &&echo && kubectl get pods -o wide && echo && kubectl get pvc && echo && kubectl get svc && echo && kubectl get cs && echo && kubectl get storageclass && echo && kubectl get deployments"'
+alias k='kubectl'
+alias kg='kubectl get'
 
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
 
