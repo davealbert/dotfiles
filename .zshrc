@@ -84,12 +84,21 @@ alias now="date -u +\"%Y%m%dT%H%M%S\""
 alias ts="date -u +\"%Y%m%dT%H%M%S\""
 
 # Kubernetes aliases
-alias prodkube='az acs kubernetes get-credentials -g medit-acs-rg -n medit-acs'
-alias testkube='az aks get-credentials  -g medit-test -n aks-medit-test'
-alias whichkube='kubectl config current-context'
-alias watchkube='watch "kubectl get nodes &&echo && kubectl get pods -o wide && echo && kubectl get pvc && echo && kubectl get svc && echo && kubectl get cs && echo && kubectl get storageclass && echo && kubectl get deployments"'
+#alias prodkube='az acs kubernetes get-credentials -g medit-acs-rg -n medit-acs'
+#alias testkube='az aks get-credentials  -g medit-test -n aks-medit-test'
+alias kwhich='kubectl config current-context'
+alias kwatch='watch "kubectl get nodes &&echo && kubectl get pods -o wide && echo && kubectl get svc && echo && kubectl get cs && echo && kubectl get storageclass && echo && kubectl get deployments"'
 alias k='kubectl'
 alias kg='kubectl get'
+
+function kshow() {
+    kubectl get nodes &&echo && kubectl get pods -o wide && echo && kubectl get svc && echo && kubectl get cs && echo && kubectl get storageclass && echo && kubectl get deployments
+}
+
+function kswitchacs () {
+    az acs kubernetes get-credentials -g ${1}-medit-acs-rg -n ${1}-medit-acs --ssh-key-file ~/.ssh/az_k8s_rsa
+}
+
 
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
 
