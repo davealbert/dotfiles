@@ -101,6 +101,8 @@ function kswitchacs () {
 
 
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
+function vs () { open -a /Applications/Visual\ Studio\ Code.app $(pwd) }
+
 
 function ss () {
    CMD="${@:2}"
@@ -142,6 +144,7 @@ focus () {
          echo $I of $TIME
          printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
          input="x"
+         sleep 0.75
       fi
       read -t 1 input
    done
@@ -197,6 +200,15 @@ function koan {
 }
 
 
+# Duck Duck Go
+function ddg {
+    Q=$(node -e "console.log(encodeURIComponent('$*'))")
+    w3m https://duckduckgo.com/\?q\=$Q
+}
+
+function calc { echo "$*" |bc}
+
+
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 
 DISABLE_AUTO_TITLE=true
@@ -214,4 +226,7 @@ eval "$(register-python-argcomplete az)"
 
 # Helm tab completion
 source <(helm completion zsh)
+
+export PATH="$HOME/.fastlane/bin:$PATH"
+
 
