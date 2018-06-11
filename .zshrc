@@ -90,6 +90,14 @@ alias kwhich='kubectl config current-context'
 alias kwatch='watch "kubectl get nodes &&echo && kubectl get pods -o wide && echo && kubectl get svc && echo && kubectl get cs && echo && kubectl get storageclass && echo && kubectl get deployments"'
 alias k='kubectl'
 alias kg='kubectl get'
+function kbrowse() {
+    if [[ "${1}x" == "x" ]];
+    then
+        echo "Usage: kbrowse [prod|test]"
+        return
+    fi
+    az acs kubernetes browse -g ${1}-medit-acs-rg -n ${1}-medit-acs --ssh-key-file ~/.ssh/az_k8s_rsa
+}
 
 function kshow() {
     kubectl get nodes &&echo && kubectl get pods -o wide && echo && kubectl get svc && echo && kubectl get cs && echo && kubectl get storageclass && echo && kubectl get deployments
@@ -151,7 +159,7 @@ focus () {
    echo $START
    date
    say "hey yo hey yo hey yo hey yo hey yo hey yo"
-   say times up. take a minute. ree focus.
+   say times up. take a minute. ree focus. and update your pomadoro list
 }
 
 
@@ -219,6 +227,7 @@ export GOPATH="/Users/davealbert/code/_Training/go"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home"
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.5.1/
 export PATH=$PATH:$EC2_HOME/bin
+export PATH="$HOME/.fastlane/bin:$PATH"
 
 # Azure-cli (az) tab completion
 autoload bashcompinit && bashcompinit
