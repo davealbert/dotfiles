@@ -2,7 +2,6 @@
 	name = Dave Albert
 	email = dave@one15digital.com
 [diff]
-	external = /Users/DaveAlbert/scripts/git-diff-wrapper.sh
 [pager]
    diff = 
 [alias]
@@ -11,7 +10,7 @@
    lg = !"git lg1"
 
 [core]
-	excludesfile = /Users/davealbert/.gitignore_global
+	excludesfile = /Users/dave/.gitignore_global
 	editor = /usr/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

@@ -17,6 +17,9 @@ map <leader>] :tabn<CR>
 map <leader>\| :vsplit<CR>
 map <leader>- :split<CR>
 
+imap <leader>x jk0ir!jkyy:@"<cr>
+nmap <leader>x 0ir!jkyy:@"<cr>
+
 set hidden
 set backup
 set backupdir=~/.vim/backup

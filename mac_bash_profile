@@ -69,7 +69,7 @@ function shh () {
 	 while [[ $OKPASS == 0 ]];
 	 do
 	 unset password
-	 prompt="Password:"
+	 prompt="Password: "
 	 while IFS= read -p "$prompt" -r -s -n 1 char
 	 do
 	 if [[ $char == $'\0' ]]
@@ -81,7 +81,7 @@ function shh () {
 	 done
 	 echo;
 	 unset confirm
-	 prompt="Confirm:"
+	 prompt="Confirm: "
 	 while IFS= read -p "$prompt" -r -s -n 1 char
 	 do
 	 if [[ $char == $'\0' ]]
