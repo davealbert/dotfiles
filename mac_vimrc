@@ -1,5 +1,12 @@
 execute pathogen#infect()
 
+" [ vmath.vim ]
+" Damian Conway's vmath plugin for vim as demonstrated at his OSCON 2013 "More
+" Instantly Better Vim" presentation. Calculates the sum, average, min, and
+" max for a visual region containing numbers.
+" https://github.com/nixon/vim-vmath
+vmap <expr>  ++  VMATH_YankAndAnalyse()
+nmap         ++  vip++
 
 "g:multi_cursor_exit_from_insert_mode (Default: 1)
 "g:multi_cursor_exit_from_visual_mode (Default: 1)
