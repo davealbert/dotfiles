@@ -16,9 +16,14 @@ map <leader>[ :tabp<CR>
 map <leader>] :tabn<CR>
 map <leader>\| :vsplit<CR>
 map <leader>- :split<CR>
-
+"
+" Run teminal commands from vim
 imap <leader>x jk0ir!jkyy:@"<cr>
 nmap <leader>x 0ir!jkyy:@"<cr>
+
+" Strip out old "Run"
+imap <leader>z jk0xx
+nmap <leader>z 0xx
 
 set hidden
 set backup
