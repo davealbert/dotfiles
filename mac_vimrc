@@ -8,6 +8,9 @@ execute pathogen#infect()
 vmap <expr>  ++  VMATH_YankAndAnalyse()
 nmap         ++  vip++
 
+noremap Q !!$SHELL<cr>
+
+
 "g:multi_cursor_exit_from_insert_mode (Default: 1)
 "g:multi_cursor_exit_from_visual_mode (Default: 1)
 let g:multi_cursor_exit_from_insert_mode=0
