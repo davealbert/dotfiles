@@ -73,6 +73,7 @@ function cdd {
 #alias vim='mvim -v'
 
 # Git aliases
+alias ba='git branch;git branch --list -a|grep "remotes/origin" --colour=never'
 alias co='git checkout'
 alias gitx='open -a GitX .'
 alias s='git status'
@@ -237,5 +238,4 @@ eval "$(register-python-argcomplete az)"
 source <(helm completion zsh)
 
 export PATH="$HOME/.fastlane/bin:$PATH"
-
 
