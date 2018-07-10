@@ -83,6 +83,7 @@ alias lynx='/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx'
 alias vim="vim -S ~/.vimrc"
 alias now="date -u +\"%Y%m%dT%H%M%S\""
 alias ts="date -u +\"%Y%m%dT%H%M%S\""
+alias dad='curl -H "User-Agent: Dad Nerd Curl" -H "Accept: application/json" https://icanhazdadjoke.com/'
 
 # Kubernetes aliases
 #alias prodkube='az acs kubernetes get-credentials -g medit-acs-rg -n medit-acs'
@@ -217,6 +218,16 @@ function ddg {
 
 function calc { echo "$*" |bc}
 
+function funnel() {
+    INSTALLS="$1"
+    DIR="/Users/dave/OneDrive - One15/Medit/Analytics"
+    FILENAME="${DIR}/arch/${NOW}.txt"
+    NOW="$(now)"
+    ${DIR}/funnel.sh ${INSTALLS} > ${FILENAME}
+    echo $FILENAME
+    cat $FILENAME | pbcopy
+    say "funnel done"
+ }
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 
