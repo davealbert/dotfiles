@@ -1,16 +1,11 @@
 [user]
 	name = Dave Albert
-	email = dave@one15digital.com
-[diff]
-	external = /Users/davealbert/scripts/git-diff-wrapper.sh
-[pager]
-   diff = 
+	email = dave.albert@gmail.com
 [alias]
    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
    lg3 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)  %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)%n%b' --all
    lg = !"git lg3"
-
 [core]
 	excludesfile = /Users/dave/.gitignore_global
 	editor = /usr/bin/vim

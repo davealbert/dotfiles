@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 DEFAULT_USER=dave
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/dave/.oh-my-zsh
+=======
+DEFAULT_USER=davealbert
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/davealbert/.oh-my-zsh
 bindkey \^U backward-kill-line
-export ZSH=/Users/dave/.oh-my-zsh
+>>>>>>> local-commandt
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -54,6 +59,45 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+<<<<<<< HEAD
+plugins=(git chucknorris z docker vagrant fabric)
+
+
+# User configuration
+
+export PATH="/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+autoload ztodo
+
+=======
 plugins=(git docker vagrant aws kubectl)
 
 # User configuration
@@ -62,6 +106,7 @@ export PATH="/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2
 
 source $ZSH/oh-my-zsh.sh
 
+>>>>>>> local-commandt
 function cdd {
    if [[ "x$1" != "x" ]]; then
       cd $1;
@@ -69,6 +114,39 @@ function cdd {
    cd $(pwd -P)
 }
 
+<<<<<<< HEAD
+function cr {
+   local url="https://collaborator.symc.symantec.com/ui#"
+   if [[ "x$1" != "x" ]]; then
+      url="${url}review:id=$1"
+   fi;
+   open "$url"
+}
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+alias l='ls -lthr'
+alias vim='mvim -v'
+
+# Git aliases
+alias co='git checkout'
+alias gitx='open -a GitX .'
+alias s='git status'
+
+alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
+
+$(boot2docker shellinit)
+
+cat ~/.ssh/ssh_conf.d/* > ~/.ssh/config
+
+chuck_cow
+
+export EDITOR=vim
+
+DISABLE_AUTO_TITLE=true
+
+# Run this command to configure your shell:
+# # eval $(docker-machine env default)
+=======
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 #alias vim='mvim -v'
@@ -250,4 +328,5 @@ eval "$(register-python-argcomplete az)"
 source <(helm completion zsh)
 
 export PATH="$HOME/.fastlane/bin:$PATH"
+>>>>>>> local-commandt
 

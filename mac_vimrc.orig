@@ -202,7 +202,10 @@ autocmd BufWritePre .*rc :%s/\s\+$//e
 autocmd BufWritePre *.todo :%s/\s\+$//e
 autocmd BufWritePre *.m :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
+<<<<<<< HEAD
+=======
 autocmd BufWritePre *.jade :%s/\s\+$//e
+>>>>>>> local-commandt
 autocmd BufWritePre *.yml :%s/\s\+$//e
 autocmd BufWritePre *.j2 :%s/\s\+$//e
 
