@@ -22,10 +22,19 @@ imap £ #
 cmap £ #
 map £ #
 
+
+function! Now()
+    r !date -u +'\%Y\%m\%dT\%H\%M\%S'
+endfunction
+map <leader>now :call Now()<cr>
+map <leader>no :call Now()<cr>
+
+
 map <leader>[ :tabp<CR>
 map <leader>] :tabn<CR>
 map <leader>\| :vsplit<CR>
 map <leader>- :split<CR>
+
 "
 " Run teminal commands from vim
 imap <leader>x jk0ir!jkyy:@"<cr>
