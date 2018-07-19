@@ -134,37 +134,44 @@ function ss () {
 
 
 focus () {
-   START=$(date)
-   clear
-   echo $START
-   cat ~/focus.txt
-   input="x"
-   if [[ "x$1" = "x" ]]
-   then
-      TIME=1500
-   else
-      TIME=$(( $1 * 60 ))
-   fi
-   for I in {1..$TIME}
-   do
-      if [[ $input != "x" ]]
-      then
-         clear
-         echo $START
-         cat ~/focus.txt
-         echo $I of $TIME
-         printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
-         input="x"
-         sleep 0.75
-      fi
-      read -t 1 input
-   done
-   echo $START
-   date
-   say "hey yo hey yo hey yo hey yo hey yo hey yo"
-   say times up. take a minute. ree focus. and update your pomadoro list
-}
+        START=$(date)
+        clear
+        echo $START
+        cat ~/focus.txt
+        input="x"
+        if [[ "x$1" = "x" ]]
+        then
+                TIME=1500
+        else
+                TIME=$(( $1 * 60 ))
+        fi
+        STAGE=$(( $TIME / 3 ))
+        for I in {1..$TIME}
+        do
+                MOD=$(( $I % $STAGE ))
+                if [[ $MOD == 0 ]];
+                then
+                   say tick toc
+                fi
 
+                if [[ $input != "x" ]]
+                then
+                        clear
+                        echo $START
+                        cat ~/focus.txt
+                        echo $I of $TIME
+                        echo $STAGE
+                        printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
+                        input="x"
+                        sleep 0.75
+                fi
+                read -t 1 input
+        done
+        echo $START
+        date
+        say "hey yo hey yo hey yo hey yo hey yo hey yo"
+        say times up. take a minute. ree focus. and update your pomadoro list
+}
 
 function tweet {
     if [[ "$*x" == "x" ]];
@@ -225,8 +232,8 @@ function funnel() {
     FILENAME="${DIR}/arch/${NOW}.txt"
     NOW="$(now)"
     ${DIR}/funnel.sh ${INSTALLS} > ${FILENAME}
-    echo $FILENAME
     cat $FILENAME | pbcopy
+    echo $FILENAME
     say "funnel done"
  }
 
@@ -249,5 +256,5 @@ eval "$(register-python-argcomplete az)"
 # Helm tab completion
 source <(helm completion zsh)
 
-export PATH="$HOME/.fastlane/bin:$PATH"
+export PATH="$HOME/.fastlane/bin:$PATH:/Users/dave/.gem/ruby/2.0.0/bin"
 

@@ -10,7 +10,6 @@ nmap         ++  vip++
 
 noremap Q !!$SHELL<cr>
 
-
 "g:multi_cursor_exit_from_insert_mode (Default: 1)
 "g:multi_cursor_exit_from_visual_mode (Default: 1)
 let g:multi_cursor_exit_from_insert_mode=0
@@ -231,6 +230,7 @@ au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
 au BufNewFile,BufRead *.txt call ToDoSettings()
+au BufNewFile,BufRead *.wiki call ToDoSettings()
 
 au BufNewFile,BufRead *.scss set filetype=scss.css
 
