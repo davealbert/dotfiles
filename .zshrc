@@ -229,8 +229,8 @@ function calc { echo "$*" |bc}
 function funnel() {
     INSTALLS="$1"
     DIR="/Users/dave/OneDrive - One15/Medit/Analytics"
-    FILENAME="${DIR}/arch/${NOW}.txt"
     NOW="$(now)"
+    FILENAME="${DIR}/arch/${NOW}.txt"
     ${DIR}/funnel.sh ${INSTALLS} > ${FILENAME}
     cat $FILENAME | pbcopy
     echo $FILENAME
