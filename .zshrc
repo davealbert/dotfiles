@@ -58,7 +58,7 @@ plugins=(git docker vagrant aws kubectl)
 
 # User configuration
 
-export PATH="/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin:/usr/local/go/bin"
+export PATH="/usr/local/bin:/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin:/usr/local/go/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -151,7 +151,10 @@ focus () {
                 MOD=$(( $I % $STAGE ))
                 if [[ $MOD == 0 ]];
                 then
-                   say tick toc
+                    if [[ $I != $TIME ]];
+                    then
+                        say tick toc $I of $TIME
+                    fi
                 fi
 
                 if [[ $input != "x" ]]

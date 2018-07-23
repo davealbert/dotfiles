@@ -2,7 +2,7 @@
 	name = Dave Albert
 	email = dave@one15digital.com
 [diff]
-	external = /Users/davealbert/scripts/git-diff-wrapper.sh
+	;external = /Users/davealbert/scripts/git-diff-wrapper.sh
 [pager]
    diff = 
 [alias]
