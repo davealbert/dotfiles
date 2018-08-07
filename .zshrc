@@ -220,6 +220,7 @@ function koan {
     elinks -dump ~/koan/${KOAN}|less
 }
 
+function v() { vim -c "cd $1" -c "pwd" }
 
 # Duck Duck Go
 function ddg {
