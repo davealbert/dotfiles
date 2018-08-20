@@ -86,6 +86,13 @@ alias now="date -u +\"%Y%m%dT%H%M%S\""
 alias ts="date -u +\"%Y%m%dT%H%M%S\""
 alias dad='curl -H "User-Agent: Dad Nerd Curl" -H "Accept: application/json" https://icanhazdadjoke.com/'
 
+function mdless() {
+    pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
+}
+umedit() { mkdir -p ~/Dropbox/.notes; vim ~/Dropbox/.notes/$1; }
+um() { mdless ~/Dropbox/.notes/"$1"; }
+umls() { ls ~/Dropbox/.notes }
+
 # Kubernetes aliases
 #alias prodkube='az acs kubernetes get-credentials -g medit-acs-rg -n medit-acs'
 #alias testkube='az aks get-credentials  -g medit-test -n aks-medit-test'
