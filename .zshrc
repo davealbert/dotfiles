@@ -93,6 +93,14 @@ umedit() { mkdir -p ~/Dropbox/.notes; vim ~/Dropbox/.notes/$1; }
 um() { mdless ~/Dropbox/.notes/"$1"; }
 umls() { ls ~/Dropbox/.notes }
 
+function play() {
+    /Applications/VLC.app/Contents/MacOS/VLC "$1" -R
+}
+
+function tron() {
+    play ~/Downloads/tron-server-room-programming-3.mp3
+}
+
 # Kubernetes aliases
 #alias prodkube='az acs kubernetes get-credentials -g medit-acs-rg -n medit-acs'
 #alias testkube='az aks get-credentials  -g medit-test -n aks-medit-test'
