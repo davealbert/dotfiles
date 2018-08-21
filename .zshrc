@@ -94,7 +94,7 @@ um() { mdless ~/Dropbox/.notes/"$1"; }
 umls() { ls ~/Dropbox/.notes }
 
 function play() {
-    /Applications/VLC.app/Contents/MacOS/VLC "$1" -R
+    /Applications/VLC.app/Contents/MacOS/VLC --intf rc "$1" -R
 }
 
 function tron() {
