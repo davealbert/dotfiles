@@ -92,6 +92,7 @@ function mdless() {
 umedit() { mkdir -p ~/Dropbox/.notes; vim ~/Dropbox/.notes/$1; }
 um() { mdless ~/Dropbox/.notes/"$1"; }
 umls() { ls ~/Dropbox/.notes }
+umcat() { cat ~/Dropbox/.notes/"$1"; }
 
 function play() {
     /Applications/VLC.app/Contents/MacOS/VLC --intf rc "$1" -R
