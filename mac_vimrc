@@ -260,31 +260,31 @@ set wildmenu
 
 
 
-"PhpUnit Testing
-function! RunPhpUnitTest(...)
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    if a:0
-        let file = a:1
-        :exec '!phpunit ' . file
-    else
-        :!phpunit
-    endif
+""PhpUnit Testing
+"function! RunPhpUnitTest(...)
+    ":w
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    "if a:0
+        "let file = a:1
+        ":exec '!phpunit ' . file
+    "else
+        ":!phpunit
+    "endif
 
-endfunction
+"endfunction
 
-map <Leader>R :call RunPhpUnitTest()<cr>
-map <Leader>r :call RunPhpUnitTest(@%)<cr>
+"map <Leader>R :call RunPhpUnitTest()<cr>
+"map <Leader>r :call RunPhpUnitTest(@%)<cr>
 
 
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+"cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-map <Leader>a :!php artisan
+"map <Leader>a :!php artisan
 
 
 
@@ -328,6 +328,7 @@ endfunction
 map <leader>b :bn!<cr>
 map <leader>l :call List_and_goto_buffers()<cr>
 
+map <leader>a :ALEToggle<cr>
 
 " Change inner word to contents of anonymous buffer
 nmap <silent> cp "_ciw<C-R>"jk
