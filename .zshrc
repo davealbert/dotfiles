@@ -89,10 +89,25 @@ alias dad='curl -H "User-Agent: Dad Nerd Curl" -H "Accept: application/json" htt
 function mdless() {
     pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
+
+_umcomplete() {
+    complete -W "$(umls| tr '\n' ' ')" $1
+}
+
+umls() { ls -1 ~/Dropbox/.notes/"$1"; }
+_umcomplete umls
+
 umedit() { mkdir -p ~/Dropbox/.notes; vim ~/Dropbox/.notes/$1; }
-um() { mdless ~/Dropbox/.notes/"$1"; }
-umls() { ls ~/Dropbox/.notes }
+_umcomplete umedit
+
+um() { if [[ "$1x" == "x" ]];then umls;else cat ~/Dropbox/.notes/"$1";fi }
+_umcomplete um
+
+umless() { mdless ~/Dropbox/.notes/"$1"; }
+_umcomplete umless
+
 umcat() { cat ~/Dropbox/.notes/"$1"; }
+_umcomplete umcat
 
 function play() {
     /Applications/VLC.app/Contents/MacOS/VLC --intf rc "$1" -R
