@@ -239,6 +239,23 @@ function t {
     tweet "$*"
   }
 
+function ks {
+    testadmin="medit-aks-test-admin"
+    testaks="medit-aks-test"
+    prodacs="prod-medit-prod-medit-acs-r-8dfff2mgmt"
+    testacs="test-medit-test-medit-acs-r-8dfff2mgmt"
+
+    CHOICE=$1$2
+    if [[ "${(P)CHOICE}x" == "x" ]];
+    then
+        echo Bad Selection
+        echo
+        echo try: ks test aks
+        return 1
+    fi
+    echo kubectl config use-context ${(P)CHOICE}
+    kubectl config use-context ${(P)CHOICE}
+}
 
 function koan {
     if [[ "x" == "x${1}" ]];
