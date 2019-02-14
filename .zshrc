@@ -164,6 +164,12 @@ function ss () {
 }
 
 
+jira() {
+    URL='https://one15digital.atlassian.net/browse/'
+    echo "Opening: ${URL}${1}"
+    open "${URL}${1}"
+}
+
 focus () {
         START=$(date)
         clear
@@ -176,17 +182,17 @@ focus () {
         else
                 TIME=$(( $1 * 60 ))
         fi
-        STAGE=$(( $TIME / 3 ))
+        STAGE=$(( $TIME / 2 ))
         for I in {1..$TIME}
         do
-                MOD=$(( $I % $STAGE ))
-                if [[ $MOD == 0 ]];
-                then
-                    if [[ $I != $TIME ]];
-                    then
-                        say tick toc $I of $TIME
-                    fi
-                fi
+                #MOD=$(( $I % $STAGE ))
+                #if [[ $MOD == 0 ]];
+                #then
+                    #if [[ $I != $TIME ]];
+                    #then
+                        #say tick toc $I of $TIME
+                    #fi
+                #fi
 
                 if [[ $input != "x" ]]
                 then
@@ -204,7 +210,7 @@ focus () {
         echo $START
         date
         say "hey yo hey yo hey yo hey yo hey yo hey yo"
-        say times up. take a minute. ree focus. and update your pomadoro list
+        say times up. take a minute. ree focus.
 }
 
 function tweet {
