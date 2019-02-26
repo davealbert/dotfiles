@@ -141,6 +141,9 @@ function kswitchacs () {
     az acs kubernetes get-credentials -g ${1}-medit-acs-rg -n ${1}-medit-acs --ssh-key-file ~/.ssh/az_k8s_rsa
 }
 
+function kswitchaks () {
+    kubectl config use-context medit-aks-${1}
+}
 
 function st () { open -a SourceTree $(git rev-parse --show-toplevel) }
 function vs () { open -a /Applications/Visual\ Studio\ Code.app $(pwd) }
