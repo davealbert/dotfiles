@@ -406,3 +406,9 @@ let g:CommandTTraverseSCM='pwd'
 set colorcolumn=81
 highlight ColorColumn ctermbg=59
 
+
+:nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) / 2)<CR>
+:nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 2)<CR>
+:nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2)<CR>
+:nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) / 2)<CR>
+
