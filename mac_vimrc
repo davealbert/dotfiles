@@ -22,11 +22,16 @@ cmap £ #
 map £ #
 
 
+function! NodeNow()
+    r !node -e 'console.log(new Date())'
+endfunction
+
 function! Now()
     r !date -u +'\%Y\%m\%dT\%H\%M\%S'
 endfunction
 map <leader>now :call Now()<cr>
 map <leader>no :call Now()<cr>
+map <leader>nn :call NodeNow()<cr>
 
 
 map <leader>[ :tabp<CR>
@@ -176,7 +181,7 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-
+map <leader>m :marks<cr>
 
 "Command-T
 "  Ctrl-p to access

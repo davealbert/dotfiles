@@ -114,7 +114,7 @@ function play() {
 }
 
 function tron() {
-    play ~/Downloads/tron-server-room-programming-3.mp3
+    play ~/Google\ Drive/Music/tron-server-room-programming-3.mp3
 }
 
 # Kubernetes aliases
