@@ -109,9 +109,10 @@ _umcomplete umless
 umcat() { cat ~/Dropbox/.notes/"$1"; }
 _umcomplete umcat
 
-function play() {
-    /Applications/VLC.app/Contents/MacOS/VLC --intf rc "$1" -R
-}
+
+alias yt='mpsyt'
+#function play() { /Applications/VLC.app/Contents/MacOS/VLC --intf rc "$1" -R }
+function play { mpv --no-video "$1" }
 
 function tron() {
     play ~/Google\ Drive/Music/tron-server-room-programming-3.mp3
