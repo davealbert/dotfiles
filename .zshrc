@@ -112,7 +112,7 @@ _umcomplete umcat
 
 alias yt='mpsyt'
 #function play() { /Applications/VLC.app/Contents/MacOS/VLC --intf rc "$1" -R }
-function play { mpv --no-video --loop-playlist 1 "$1" }
+function play { mpv --no-video --loop-playlist "$1" }
 
 function tron() {
     play ~/Google\ Drive/Music/tron-server-room-programming-3.mp3
