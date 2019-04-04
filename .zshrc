@@ -320,3 +320,7 @@ source <(helm completion zsh)
 
 export PATH="$HOME/.fastlane/bin:$PATH:/Users/dave/.gem/ruby/2.0.0/bin"
 
+function hal {
+    cd "/Users/davealbert/Google Drive/hal"
+    node app
+}
