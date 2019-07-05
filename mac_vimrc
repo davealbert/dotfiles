@@ -38,6 +38,7 @@ map <leader>[ :tabp<CR>
 map <leader>] :tabn<CR>
 map <leader>\| :vsplit<CR>
 map <leader>- :split<CR>
+map <leader>s :set spell!<CR>
 
 "
 " Run teminal commands from vim
@@ -219,6 +220,7 @@ function! ToDoSettings()
     map <Leader>u :s/\[x\]/\[\ \]<cr>//<CR>jk:w<cr>
     setlocal ft=todo
 endfunction
+command! Todo call ToDoSettings()
 
 function! CodeLeaderSettings(langExe)
     execute "map <Leader><Leader> :w<cr>:!" . a:langExe . " %<cr>"
@@ -240,6 +242,7 @@ au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 au BufNewFile,BufRead *.todo call ToDoSettings()
 au BufNewFile,BufRead *.txt call ToDoSettings()
 au BufNewFile,BufRead *.wiki call ToDoSettings()
+au BufNewFile,BufRead standup call ToDoSettings()
 
 au BufNewFile,BufRead *.scss set filetype=scss.css
 

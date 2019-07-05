@@ -188,6 +188,8 @@ jira() {
 }
 
 focus () {
+        echo -n "What is your intention? "
+        read INTENTION
         START=$(date)
         clear
         echo $START
@@ -219,6 +221,7 @@ focus () {
                         echo $I of $TIME
                         echo $STAGE
                         printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
+                        printf "Are you moving towards:  '%s'\n" $INTENTION
                         input="x"
                         sleep 0.75
                 fi
@@ -311,6 +314,12 @@ function funnel() {
     echo $FILENAME
     say "funnel done"
  }
+
+function cms() {
+    _CMS=($(kubectl.docker get pods |grep cms-medit|cut -f 1 -d" "));
+    kubectl.docker logs -f --tail=10 $_CMS[$1]
+}
+
 
 #alias KeeLocal='echo -n ~/code/KeePass/local.key|pbcopy && open -n /Applications/KeePassX.app ~/code/KeePass/local.kdb'
 
