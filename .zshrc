@@ -316,8 +316,32 @@ function funnel() {
  }
 
 function cms() {
+    if  [[ "xx" == "xx${1}" ]];
+    then
+        echo "invalid command : $0 1 exec"
+        return;
+    fi
     _CMS=($(kubectl.docker get pods |grep cms-medit|cut -f 1 -d" "));
-    kubectl.docker logs -f --tail=10 $_CMS[$1]
+    _LOGS="kubectl.docker logs -f --tail=10 $_CMS[$1]"
+    _EXEC="kubectl.docker exec -it $_CMS[$1] bash"
+    if [[ "xx" == "xx${2}" ]];
+    then
+        echo "invalid command type (log, exec)"
+        return;
+    fi
+
+    if [[ "log" == "${2}" ]];
+    then
+        _CMD=$_LOGS
+    fi
+
+    if [[ "exec" == "${2}" ]];
+    then
+        _CMD=$_EXEC
+    fi
+
+    echo $_CMD
+    eval $_CMD
 }
 
 

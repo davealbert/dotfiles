@@ -45,6 +45,14 @@ map <leader>s :set spell!<CR>
 imap <leader>x jk0ir!jkyy:@"<cr>
 nmap <leader>x 0ir!jkyy:@"<cr>
 
+"imap ,i 0i!open jk"iyyu:@i<CR><cr>
+"nmap ,i mii!openjkA jk`inf v`ahyuu:!@i<cr><cr>
+"!open jk"iyyu:@i<CR><cr>
+imap <leader>i jkmaA jk`af v0"iyGojkp0i!open jk"idd`i:@i<cr><cr>
+nmap <leader>i maA jk`af v0"iyGojkp0i!open jk"idd`i:@i<cr><cr>
+imap <leader>ii jkmaA jk`af vF "iyGojkp0i!openjk"idd`i:@i<cr><cr>
+nmap <leader>ii maA jk`af vF "iyGojkp0i!openjk"idd`i:@i<cr><cr>
+
 " Strip out old "Run"
 imap <leader>z jk0xx
 nmap <leader>z 0xx
