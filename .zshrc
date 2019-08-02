@@ -109,6 +109,7 @@ _umcomplete umless
 umcat() { cat ~/Dropbox/.notes/"$1"; }
 _umcomplete umcat
 
+umgrep() { grep $1 ~/Dropbox/.notes/* -d skip ; }
 
 alias yt='mpsyt'
 #function play() { /Applications/VLC.app/Contents/MacOS/VLC --intf rc "$1" -R }
