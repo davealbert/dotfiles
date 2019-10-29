@@ -189,8 +189,6 @@ jira() {
 }
 
 focus () {
-        echo -n "What is your intention? "
-        read INTENTION
         START=$(date)
         clear
         echo $START
@@ -222,7 +220,7 @@ focus () {
                         echo $I of $TIME
                         echo $STAGE
                         printf "%0.2f minutes remaining\n" $(( ($TIME - $I) / 60.0 ))
-                        printf "Are you moving towards:  '%s'\n" $INTENTION
+                        printf "Are you moving towards you INTENTION?\n"
                         input="x"
                         sleep 0.75
                 fi
