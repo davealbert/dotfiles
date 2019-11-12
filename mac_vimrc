@@ -198,6 +198,9 @@ map <leader>m :marks<cr>
 map <C-p> <Esc>:CommandT<CR>
 imap <C-p> <Esc>:CommandT<CR>
 
+let g:CommandTWildIgnore="**/*.min.*,**/*.jpg,**/*.png,*/dist,*/docs,*/node_modules,*/nginx,*/tmp"
+
+
 
 inoremap jk <esc>
 inoremap <esc> <esc>:echo 'No! Use: jk '<cr>i

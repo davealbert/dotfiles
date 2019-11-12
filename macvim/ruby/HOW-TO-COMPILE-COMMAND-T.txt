@@ -1,5 +1,0 @@
-
-cd ~/code/dotfiles/macvim/ruby/command-t
-make clean
-ruby extconf.rb
-make 
