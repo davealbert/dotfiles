@@ -1,4 +1,5 @@
 execute pathogen#infect()
+set path+=**
 
 " [ vmath.vim ]
 " Damian Conway's vmath plugin for vim as demonstrated at his OSCON 2013 "More
