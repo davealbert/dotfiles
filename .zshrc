@@ -86,6 +86,10 @@ alias now="date -u +\"%Y%m%dT%H%M%S\""
 alias ts="date -u +\"%Y%m%dT%H%M%S\""
 alias dad='curl -H "User-Agent: Dad Nerd Curl" -H "Accept: application/json" https://icanhazdadjoke.com/'
 
+" lg (daily log script)
+complete -W "--edit --tail --list --show --dump" lg
+
+
 function mdless() {
     pandoc -s -f markdown -t man $1 | groff -T utf8 -man | less
 }
