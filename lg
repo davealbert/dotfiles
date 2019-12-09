@@ -1,0 +1,38 @@
+#!/bin/bash
+
+LOGFILE="/Users/dave/Dropbox/.notes/JOURNAL/log.txt"
+
+function _readIt {
+    echo -n "What's happening? "
+    read INPUT
+
+    echo "[$(date)] - ${INPUT}" 
+    echo "[$(date)] - ${INPUT}" >> $LOGFILE
+}
+
+function _tailIt {
+    tail $LOGFILE
+    echo ""
+    date
+}
+
+function _showIt {
+    cat $LOGFILE
+    echo ""
+    date
+}
+
+function _editIt {
+    vim $LOGFILE
+}
+
+case $1 in
+    "--edit")
+        _editIt ;;
+    "--tail")
+        _tailIt ;;
+    "--list"|"--show"|"--dump")
+        _showIt ;;
+    *)
+        _readIt ;;
+esac
