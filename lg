@@ -3,8 +3,13 @@
 LOGFILE="/Users/dave/Dropbox/.notes/JOURNAL/log.txt"
 
 function _readIt {
-    echo -n "What's happening? "
-    read INPUT
+    if [[ "$1v" == "v" ]];
+    then
+        echo -n "What's happening? "
+        read INPUT
+    else
+        INPUT=$*
+    fi
 
     echo "[$(date)] - ${INPUT}" 
     echo "[$(date)] - ${INPUT}" >> $LOGFILE
@@ -34,5 +39,5 @@ case $1 in
     "--list"|"--show"|"--dump")
         _showIt ;;
     *)
-        _readIt ;;
+        _readIt $* ;;
 esac
