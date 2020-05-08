@@ -54,7 +54,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker vagrant aws kubectl)
+plugins=(git docker vagrant aws kubectl vscode)
 
 # User configuration
 
@@ -373,3 +373,13 @@ function hal {
     cd "/Users/davealbert/Google Drive/hal"
     node app
 }
+
+function tz {
+    echo
+    echo "          $(date +'%d/%m/%Y')"
+    echo
+    echo " --> $(TZ=':Europe/Dublin' date '+%H:%M') -- Europe/Dublin"
+    echo "     $(TZ=':America/New_York' date '+%H:%M') -- America/New_York"
+    echo "     $(TZ=':America/Los_Angeles' date '+%H:%M') -- America/Los_Angeles"
+}
+eval "$(pyenv init -)"

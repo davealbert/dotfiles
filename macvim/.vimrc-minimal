@@ -1,0 +1,89 @@
+" SuperTab
+" https://raw.githubusercontent.com/ervandew/supertab/master/plugin/supertab.vim
+"
+set number
+set relativenumber
+map <C-l> :set number!<CR>
+map <c-n> :set relativenumber!<cr>
+
+inoremap jk <esc>
+
+let mapleader=","
+
+set showtabline=4
+set cmdheight=2
+
+set ai                  " auto indenting
+set history=10000       " keep 100 lines of history
+set ruler               " show the cursor position
+set showcmd
+set ignorecase
+syntax on               " syntax highlighting
+set hlsearch            " highlight the last searched term
+:nnoremap // :nohlsearch<cr>
+
+set cursorline
+
+map <silent> <Up> :wincmd k<CR>
+map <silent> <Down> :wincmd j<CR>
+map <silent> <Left> :wincmd h<CR>
+map <silent> <Right> :wincmd l<CR>
+
+imap <silent> <Up> :wincmd k<CR>
+imap <silent> <Down> :wincmd j<CR>
+imap <silent> <Left> :wincmd h<CR>
+imap <silent> <Right> :wincmd l<CR>
+
+
+set shell=bash
+set wildmenu
+
+map <leader>b :bn!<cr>
+
+set backup
+set backupdir=~/.vim/backup
+set directory=~/.vim/tmp
+
+" size of a hard tabstop
+set tabstop=4
+
+" size of an "indent"
+set shiftwidth=4
+
+" a combination of spaces and tabs are used to simulate tab stops at a width
+" other than the (hard)tabstop
+set softtabstop=4
+
+" always uses spaces instead of tab characters
+set expandtab
+
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+function! List_and_goto_buffers()
+   exec ':buffers'
+   call inputsave()
+   let buffer = input('Buffer no: ')
+   call inputrestore()
+   exec ':b' . buffer
+endfunction
+map <leader>l :call List_and_goto_buffers()<cr>
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
