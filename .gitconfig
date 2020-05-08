@@ -1,6 +1,6 @@
 [user]
 	name = Dave Albert
-	email = dave.albert@publicisdhealthcare.ie
+	email = dave.albert@nearform.com
 [diff]
 	external = /Users/DaveAlbert/scripts/git-diff-wrapper.sh
 [pager]
@@ -16,7 +16,7 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [push]
 	default = matching
