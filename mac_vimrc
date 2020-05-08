@@ -1,5 +1,15 @@
 execute pathogen#infect()
+set path+=**
 
+" [ vmath.vim ]
+" Damian Conway's vmath plugin for vim as demonstrated at his OSCON 2013 "More
+" Instantly Better Vim" presentation. Calculates the sum, average, min, and
+" max for a visual region containing numbers.
+" https://github.com/nixon/vim-vmath
+vmap <expr>  ++  VMATH_YankAndAnalyse()
+nmap         ++  vip++
+
+noremap Q !!$SHELL<cr>
 
 "g:multi_cursor_exit_from_insert_mode (Default: 1)
 "g:multi_cursor_exit_from_visual_mode (Default: 1)
@@ -12,8 +22,41 @@ imap £ #
 cmap £ #
 map £ #
 
-map <f7> :tabp<CR>
-map <f8> :tabn<CR>
+
+function! NodeNow()
+    r !node -e 'console.log(new Date())'
+endfunction
+
+function! Now()
+    r !date -u +'\%Y\%m\%dT\%H\%M\%S'
+endfunction
+map <leader>now :call Now()<cr>
+map <leader>no :call Now()<cr>
+map <leader>nn :call NodeNow()<cr>
+
+
+map <leader>[ :tabp<CR>
+map <leader>] :tabn<CR>
+map <leader>\| :vsplit<CR>
+map <leader>- :split<CR>
+map <leader>s :set spell!<CR>
+
+"
+" Run teminal commands from vim
+imap <leader>x jk0ir!jkyy:@"<cr>
+nmap <leader>x 0ir!jkyy:@"<cr>
+
+"imap ,i 0i!open jk"iyyu:@i<CR><cr>
+"nmap ,i mii!openjkA jk`inf v`ahyuu:!@i<cr><cr>
+"!open jk"iyyu:@i<CR><cr>
+imap <leader>i jkmaA jk`af v0"iyGojkp0i!open jk"idd`i:@i<cr><cr>
+nmap <leader>i maA jk`af v0"iyGojkp0i!open jk"idd`i:@i<cr><cr>
+imap <leader>ii jkmaA jk`af vF "iyGojkp0i!openjk"idd`i:@i<cr><cr>
+nmap <leader>ii maA jk`af vF "iyGojkp0i!openjk"idd`i:@i<cr><cr>
+
+" Strip out old "Run"
+imap <leader>z jk0xx
+nmap <leader>z 0xx
 
 set hidden
 set backup
@@ -28,7 +71,7 @@ set shiftwidth=2
 
 " a combination of spaces and tabs are used to simulate tab stops at a width
 " other than the (hard)tabstop
-"set softtabstop=4
+set softtabstop=2
 
 " always uses spaces instead of tab characters
 set expandtab
@@ -40,11 +83,15 @@ set expandtab
 
 
 set number
-map <C-l> :set nu!<CR>
+set relativenumber
+map <C-l> :set number!<CR>
+map <c-n> :set relativenumber!<cr>
 
 nnoremap <silent> <C-a> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 
+
+"nnoremap <silent> <C-a> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 set ai                  " auto indenting
 set history=10000       " keep 100 lines of history
 set ruler               " show the cursor position
@@ -144,13 +191,16 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-
+map <leader>m :marks<cr>
 
 "Command-T
 "  Ctrl-p to access
 "     Ctrl-t to open in new tab
 map <C-p> <Esc>:CommandT<CR>
 imap <C-p> <Esc>:CommandT<CR>
+
+let g:CommandTWildIgnore="**/*.min.*,**/*.jpg,**/*.png,*/dist,*/docs,*/node_modules,*/nginx,*/tmp"
+
 
 
 inoremap jk <esc>
@@ -172,6 +222,9 @@ autocmd BufWritePre .*rc :%s/\s\+$//e
 autocmd BufWritePre *.todo :%s/\s\+$//e
 autocmd BufWritePre *.m :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
+autocmd BufWritePre *.jade :%s/\s\+$//e
+autocmd BufWritePre *.yml :%s/\s\+$//e
+autocmd BufWritePre *.j2 :%s/\s\+$//e
 
 function! ToDoSettings()
     "map <Leader><Leader> :s/\[\s\]/\[x\]<cr>//A<space>\|<space><C-r>=strftime('%F')<CR>jk:w<cr>
@@ -179,6 +232,7 @@ function! ToDoSettings()
     map <Leader>u :s/\[x\]/\[\ \]<cr>//<CR>jk:w<cr>
     setlocal ft=todo
 endfunction
+command! Todo call ToDoSettings()
 
 function! CodeLeaderSettings(langExe)
     execute "map <Leader><Leader> :w<cr>:!" . a:langExe . " %<cr>"
@@ -193,10 +247,14 @@ endfunction
 au BufNewFile,BufRead *.php call CodeLeaderSettings("php")
 au BufNewFile,BufRead *.rb call CodeLeaderSettings("ruby")
 au BufNewFile,BufRead *.py call CodeLeaderSettings("python")
+au BufNewFile,BufRead *.js call CodeLeaderSettings("node")
+au BufNewFile,BufRead *.go call CodeLeaderSettings("go run")
 au BufNewFile,BufRead *.cpp call CppLeaderSetting()
 
 au BufNewFile,BufRead *.todo call ToDoSettings()
 au BufNewFile,BufRead *.txt call ToDoSettings()
+au BufNewFile,BufRead *.wiki call ToDoSettings()
+au BufNewFile,BufRead standup call ToDoSettings()
 
 au BufNewFile,BufRead *.scss set filetype=scss.css
 
@@ -207,10 +265,12 @@ endif
 au BufNewFile,BufRead *.hbs set filetype=html
 au BufNewFile,BufRead *.ejs set filetype=html
 
-nmap <C-s> :w<CR>
+nmap <C-s> :setlocal spell!<CR>
+"nmap <C-s> :w<CR>
 "imap <c-s> <Esc>:w<CR>a
 imap <C-s> <Esc><C-s>
 
+"gorlf
 
 map <Leader>t :tabnew<Enter>
 map <Leader>w :close<Enter>
@@ -221,31 +281,31 @@ set wildmenu
 
 
 
-"PhpUnit Testing
-function! RunPhpUnitTest(...)
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
-    if a:0
-        let file = a:1
-        :exec '!phpunit ' . file
-    else
-        :!phpunit
-    endif
+""PhpUnit Testing
+"function! RunPhpUnitTest(...)
+    ":w
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    ":silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;
+    "if a:0
+        "let file = a:1
+        ":exec '!phpunit ' . file
+    "else
+        ":!phpunit
+    "endif
 
-endfunction
+"endfunction
 
-map <Leader>R :call RunPhpUnitTest()<cr>
-map <Leader>r :call RunPhpUnitTest(@%)<cr>
+"map <Leader>R :call RunPhpUnitTest()<cr>
+"map <Leader>r :call RunPhpUnitTest(@%)<cr>
 
 
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+"cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
-map <Leader>a :!php artisan
+"map <Leader>a :!php artisan
 
 
 
@@ -289,6 +349,7 @@ endfunction
 map <leader>b :bn!<cr>
 map <leader>l :call List_and_goto_buffers()<cr>
 
+map <leader>a :ALEToggle<cr>
 
 " Change inner word to contents of anonymous buffer
 nmap <silent> cp "_ciw<C-R>"jk
@@ -353,4 +414,21 @@ map ∆ :wincmd h<CR>j<CR>
 
 
 
+
+"" Leader short cuts to grow
+map <leader>pmain iif __name__ == "__main__":jkomain(sys.argv[1:])
+
+
+set wildignore=.o,.obj,.git,node_modules/**,app/node_modules/**,.DS_Store,.gitkeep
+let g:CommandTTraverseSCM='pwd'
+
+
+set colorcolumn=81
+highlight ColorColumn ctermbg=59
+
+
+:nnoremap <silent> <Leader>< :exe "vertical resize " . (winwidth(0) / 2)<CR>
+:nnoremap <silent> <Leader>> :exe "vertical resize " . (winwidth(0) * 2)<CR>
+:nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 2)<CR>
+:nnoremap <silent> <Leader>= :exe "resize " . (winheight(0) / 2)<CR>
 
