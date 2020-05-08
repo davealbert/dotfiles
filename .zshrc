@@ -2,7 +2,6 @@ DEFAULT_USER=dave
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/davealbert/.oh-my-zsh
 bindkey \^U backward-kill-line
-export ZSH=/Users/dave/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -58,7 +57,7 @@ plugins=(git docker vagrant aws kubectl)
 
 # User configuration
 
-export PATH="/usr/local/opt/ruby/bin/:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin:/usr/local/go/bin"
+export PATH="/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/dave/scripts:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Users/dave/.rvm/gems/ruby-2.2.0/bin:/Users/dave/.rvm/gems/ruby-2.2.0@global/bin:/Users/dave/.rvm/rubies/ruby-2.2.0/bin:/opt/local/bin:/opt/local/sbin:/Applications/MAMP/bin/php5/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/X11/bin:/Users/dave/scripts:/usr/local/Cellar/binutils/2.23/bin:/Users/dave/.rvm/bin:/usr/local/Cellar/binutils/2.23/bin:/usr/local/go/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -186,12 +185,6 @@ function ss () {
 }
 
 
-jira() {
-    URL='https://one15digital.atlassian.net/browse/'
-    echo "Opening: ${URL}${1}"
-    open "${URL}${1}"
-}
-
 focus () {
         START=$(date)
         clear
@@ -235,6 +228,7 @@ focus () {
         say "hey yo hey yo hey yo hey yo hey yo hey yo"
         say times up. take a minute. ree focus.
 }
+
 
 function tweet {
     if [[ "$*x" == "x" ]];
@@ -313,8 +307,8 @@ function funnel() {
     NOW="$(now)"
     FILENAME="${DIR}/arch/${NOW}.txt"
     ${DIR}/funnel.sh ${INSTALLS} > ${FILENAME}
-    cat $FILENAME | pbcopy
     echo $FILENAME
+    cat $FILENAME | pbcopy
     say "funnel done"
  }
 

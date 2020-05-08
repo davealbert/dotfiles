@@ -13,7 +13,7 @@ ECHO = $(ECHO1:0=@echo)
 srcdir = .
 topdir = /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0
 hdrdir = $(topdir)
-arch_hdrdir = /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin13
+arch_hdrdir = /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/universal-darwin14
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
 prefix = /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr
@@ -99,7 +99,7 @@ RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
 RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
 
-arch = universal-darwin13
+arch = universal-darwin14
 sitearch = $(arch)
 ruby_version = 2.0.0
 ruby = $(bindir)/ruby

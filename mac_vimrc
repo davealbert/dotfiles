@@ -87,7 +87,7 @@ set relativenumber
 map <C-l> :set number!<CR>
 map <c-n> :set relativenumber!<cr>
 
-nnoremap <silent> <C-a> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+"nnoremap <silent> <C-a> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 
 

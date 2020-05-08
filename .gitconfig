@@ -2,16 +2,17 @@
 	name = Dave Albert
 	email = dave.albert@nearform.com
 [diff]
-	external = /Users/DaveAlbert/scripts/git-diff-wrapper.sh
 [pager]
    diff = 
 [alias]
    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-   lg = !"git lg1"
+   lg3 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset)  %C(white)%s%C(reset) %C(dim white) - %an%C(reset)%C(bold yellow)%d%C(reset)%n%b' --all
+   lg = !"git lg3"
 
 [core]
-	excludesfile = /Users/DaveAlbert/.gitignore_global
+	excludesfile = /Users/dave/.gitignore_global
+	editor = /usr/bin/vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -20,3 +21,8 @@
 	trustExitCode = true
 [push]
 	default = matching
+[commit]
+	template = /Users/davealbert/.stCommitMsg
+[credential]
+	helper = !aws --profile codecommit credential-helper $@
+	UseHttpPath = true

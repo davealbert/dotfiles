@@ -7,3 +7,4 @@ macvim/view/
 macvim/bundle/vim-multiple-cursors
 macvim/bundle/nerdcommenter
 macvim/bundle/
+secrets.conf
