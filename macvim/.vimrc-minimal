@@ -39,6 +39,7 @@ set shell=bash
 set wildmenu
 
 map <leader>b :bn!<cr>
+map <leader>dup :g/^\(.*\)$\n\1$/p<cr>
 
 set backup
 set backupdir=~/.vim/backup
