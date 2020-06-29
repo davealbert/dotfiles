@@ -35,6 +35,7 @@ map <leader>no :call Now()<cr>
 map <leader>nn :call NodeNow()<cr>
 
 
+map <leader>dup :g/^\(.*\)$\n\1$/p<cr>
 map <leader>[ :tabp<CR>
 map <leader>] :tabn<CR>
 map <leader>\| :vsplit<CR>
