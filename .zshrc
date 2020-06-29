@@ -1,6 +1,5 @@
 DEFAULT_USER=dave
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/davealbert/.oh-my-zsh
 bindkey \^U backward-kill-line
 export ZSH=/Users/dave/.oh-my-zsh
 
@@ -382,4 +381,3 @@ function tz {
     echo "     $(TZ=':America/New_York' date '+%H:%M') -- America/New_York"
     echo "     $(TZ=':America/Los_Angeles' date '+%H:%M') -- America/Los_Angeles"
 }
-eval "$(pyenv init -)"
